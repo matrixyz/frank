@@ -21,7 +21,7 @@
 
 
 	<!-- 扫描类包，将标注Spring注解的类自动转化Bean，同时完成Bean的注入 -->
-	<context:component-scan base-package="com.shop.dao.mybatis.model" />
+	<context:component-scan base-package="com.binli.agiledev.model" />
 
 
 
@@ -36,12 +36,12 @@
 		<property name="dataSource" ref="dataSource" />
 		<!-- 自动扫描me/gacl/mapping/目录下的所有SQL映射的xml文件, 省掉Configuration.xml里的手工配置 value="classpath:me/gacl/mapping/*.xml"指的是classpath(类路径)下me.gacl.mapping包中的所有xml文件 
 			UserMapper.xml位于me.gacl.mapping包下，这样UserMapper.xml就可以被自动扫描 -->
-		<property name="mapperLocations" value="classpath:com/shop/dao/mybatis/mapping/*.xml" />
+		<!-- <property name="mapperLocations" value="classpath:com/shop/dao/mybatis/mapping/*.xml" /> -->
 	</bean>
 	<!-- 配置扫描器 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<!-- 扫描me.gacl.dao这个包以及它的子包下的所有映射接口类 -->
-		<property name="basePackage" value="com.shop.dao.mybatis.dao" />
+		<property name="basePackage" value="com.binli.agiledev.dao" />
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>
 
@@ -79,7 +79,7 @@
 		<mvc:interceptor>
 			<!-- 匹配的是url路径， 如果不配置或/**,将拦截所有的Controller -->
 			<mvc:mapping path="/**" />
-			<bean class="com.shop.system.interceptor.IntercepterAdmin"></bean>
+			<bean class="com.binli.agiledev.system.interceptor.IntercepterAdmin"></bean>
 		</mvc:interceptor>
 		<!-- 当设置多个拦截器时，先按顺序调用preHandle方法，然后逆序调用每个拦截器的postHandle和afterCompletion方法 -->
 	</mvc:interceptors>

@@ -1,6 +1,13 @@
 package com.binli.agiledev.dao.mapper;
 
+import java.util.List;
+import java.util.Map;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.binli.agiledev.dao.model.User;
+ 
+import com.binli.agiledev.util.PageBean;
 
 public interface UserMapper {
     /**
@@ -49,10 +56,11 @@ public interface UserMapper {
      *
      * @mbggenerated Mon Aug 08 17:44:42 CST 2016
      */
-    int updateByPrimaryKey(User record);
+    List<Map<String ,Object>> selectAll( );
     
-    User userLogin(User user);
-    
+    User userLogin(@Param("name")String name,@Param("pwd")String pwd);
+    List<User> queryPage(@Param("cus")User cus,@Param("pb")PageBean pb);
+    int queryPageTotal(User cus );
     
     
 }

@@ -17,7 +17,7 @@ import com.binli.agiledev.util.PageBean;
  
 @Scope("prototype")//保证该类多例
 @Controller
-@RequestMapping("/cus")
+@RequestMapping("/user")
 public class UserCtl extends BaseCtl{
 
 	 
@@ -25,21 +25,21 @@ public class UserCtl extends BaseCtl{
 	private UserMapper userMapper;//注入dao
 	@RequestMapping("/login")
 	public String login() {
-		User cus=(User)param(User.class);
-		cus.setId(0);
-		if (cusRegValidata(cus)) {
+		User user=(User)param(User.class);
+		user.setId(0);
+		if (cusRegValidata(user)) {
 			  
-			User cuss =userMapper.userLogin(cus);
-			if (cuss.getId()>0) {
-				getSess().setAttribute("User", cuss);
-				return "cus-center";
+			User userLog =userMapper.userLogin(user.getName(),user.getPwd());
+			if (userLog!=null&&userLog.getId()>0) {
+				getSess().setAttribute("User", userLog);
+				return "user-center";
 			} else {
 				setMsg("用户名或密码错误");
-				return "cus-login";
+				return "index";
 			}
 		}
 
-		return "cus-login";
+		return "index";
 	}
 	public boolean cusRegValidata(User cus) {
 
@@ -55,7 +55,7 @@ public class UserCtl extends BaseCtl{
 		return true;
 	}
 	 
- 
+	
 	 
 	@RequestMapping("/loginOut")
 	public String loginOut() {
@@ -102,7 +102,7 @@ public class UserCtl extends BaseCtl{
 
 	@RequestMapping("/aa")
 	public String aa() {//这个方法查询的结果集是一个list<map>类型的结果
-		List<Map<String ,Object>> ls=userMapper1.select();
+		List<Map<String ,Object>> ls=userMapper.selectAll();
 		printJsonArr(ls);
 		
 		return null;

@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>考试中心</title>
-<link rel="stylesheet" type="text/css" href="/testa/js/easyui/themes/default/easyui.css">
-<link rel="stylesheet" type="text/css" href="/testa/js/easyui/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="/js/easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="/js/easyui/themes/icon.css">
 <style type="text/css">  
         html,body  
         {  
@@ -14,8 +14,8 @@
             margin:0 auto;  
         }  
     </style>
-<script type="text/javascript" src="/testa/js/easyui/jquery.min.js"></script>
-<script type="text/javascript" src="/testa/js/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="/js/easyui/jquery.min.js"></script>
+<script type="text/javascript" src="/js/easyui/jquery.easyui.min.js"></script>
 <script type="text/javascript">
 		var parentFn=new Object();
 		parentFn.allTitle=new Array();//用来存储所有选项卡的标题

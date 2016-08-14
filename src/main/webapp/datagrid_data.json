@@ -1,0 +1,27 @@
+[{
+            "itemid":25,
+            "productid":"11",
+            "listprice":"333",
+            "unitcost":"user",
+            "attr1":"这个是用户表",
+             "status":"1",
+            "action":"www.baidu.com"
+        },
+                {
+            "itemid":26,
+            "productid":"11",
+            "listprice":"333",
+            "unitcost":"user",
+            "attr1":"这个是用户表",
+             "status":"1",
+            "action":"www.baidu.com"
+        },
+                {
+            "itemid":27,
+            "productid":"11",
+            "listprice":"333",
+            "unitcost":"user",
+            "attr1":"这个是用户表",
+             "status":"1",
+            "action":"www.baidu.com"
+        }]

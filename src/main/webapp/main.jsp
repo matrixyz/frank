@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>like a man</title>
-<link rel="stylesheet" type="text/css" href="/js/easyui/themes/default/easyui.css">
-<link rel="stylesheet" type="text/css" href="/js/easyui/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="js/easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="js/easyui/themes/icon.css">
 <style type="text/css">  
         html,body  
         {  
@@ -14,8 +14,8 @@
             margin:0 auto;  
         }  
     </style>
-<script type="text/javascript" src="/js/easyui/jquery.min.js"></script>
-<script type="text/javascript" src="/js/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="js/easyui/jquery.min.js"></script>
+<script type="text/javascript" src="js/easyui/jquery.easyui.min.js"></script>
 <script type="text/javascript">
 		var parentFn=new Object();
 		parentFn.allTitle=new Array();//用来存储所有选项卡的标题
@@ -81,13 +81,13 @@
 				    },
 				    tools:'#tab-tools'
 				});
-				var href="/web/mgr-model.jsp";
+				var href="web/mgr-model.jsp";
 				var content = '<iframe  frameborder="0"  src="'+href+'" style="width:100%;height:100%;" scrolling="yes" ></iframe>'; 
 				tt.tabs('add',{  
 					title:"工作空间",  					
 					iconCls:'icon-man'
 				});   
-				tt.tabs('add',{ title:"模型管理", iconCls:'icon-one',content:"" }); 
+				tt.tabs('add',{ title:"模型管理", iconCls:'icon-one',content:content }); 
 				tt.tabs('add',{ title:"HTML", iconCls:'icon-three',content:"" }); 
 				tt.tabs('add',{ title:"JS", iconCls:'icon-hh',content:"" });
 				tt.tabs('add',{ title:"JSP", iconCls:'icon-green',content:"" });
@@ -96,7 +96,8 @@
 				tt.tabs('add',{ title:"业务", iconCls:'icon-one',content:"" });
 				tt.tabs('add',{ title:"项目管理", iconCls:'icon-hh',content:"" });
 				tt.tabs('add',{ title:"用户管理", iconCls:'icon-man',content:"" });
-				tt.tabs('add',{ title:"系统设置", iconCls:'icon-hh',content:content });
+				tt.tabs('add',{ title:"系统设置", iconCls:'icon-hh',content:"" });
+				tt.tabs('select',"模型管理");
 			}  
 
 			/**     

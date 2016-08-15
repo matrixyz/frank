@@ -32,7 +32,8 @@
 		
 		$(function(){ 
 			 
-			 
+			/****************************************************************************  */
+			/*   */
 			//获取滚动信息栏信息
 			parentFn.getMessage=function(){
 				
@@ -81,7 +82,7 @@
 				    },
 				    tools:'#tab-tools'
 				});
-				var href="web/mgr-model.jsp";
+				var href="/web/mgr-model.jsp";
 				var content = '<iframe  frameborder="0"  src="'+href+'" style="width:100%;height:100%;" scrolling="yes" ></iframe>'; 
 				tt.tabs('add',{  
 					title:"工作空间",  					
@@ -136,29 +137,35 @@
 				$.ajax({
 					type: "get",
 					url:"/main/sys?cmd=init_stu_do_exam&rand=",					
-					dataType: "text",
-					
+					dataType: "text",					
 					success:function(data){
 						if(data!=null&&data=="true"){
 							alert("缓存清除成功!");
 						}else{
 							  alert("缓存清除失败!");
-						}
-						
-						
+						}					
 					},
 					error: function (XMLHttpRequest, textStatus, errorThrown) {
 							alert(errorThrown);
 					}
 				});	
 			}
+			/*   */
+			/****************************************************************************  */
+			
+			
+
+			
+			
+			
+			
+			
+			
 			
 			
 			window.onload=function()
 			{
 				parentFn.initTab();
-				
-				
 			};		
 			 
 					

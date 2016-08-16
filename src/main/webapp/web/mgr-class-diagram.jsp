@@ -10,6 +10,7 @@
 		href="/js/easyui/themes/default/easyui.css">
 		<link rel="stylesheet" type="text/css"
 			href="/js/easyui/themes/icon.css">
+		
 			<style type="text/css">
 html, body {
 	height: 100%;
@@ -19,7 +20,10 @@ html, body {
 </style>
 <script type="text/javascript" src="/js/easyui/jquery.min.js"></script>
 <script type="text/javascript" src="/js/easyui/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="/js/jtopo-0.4.6-min.js"></script>
+<script type="text/javascript" src="/js/jsplumb/jsPlumb-2.1.5.js"></script>
+
+
+
 <script type="text/javascript">
 	var parentFn = new Object();
 	parentFn.allTitle = new Array();//用来存储所有选项卡的标题
@@ -54,28 +58,10 @@ html, body {
 	            {field:'obj_comment',title:'描述',width:160,align:'right'}
 	        ]]
 	    });
-	    
-	    
-		
-	    var canvas = document.getElementById('canvas'); 
-	    var stage = new JTopo.Stage(canvas); // 创建一个舞台对象
-	    var scene = new JTopo.Scene(stage); // 创建一个场景对象
-	    
-	    var node = new JTopo.Node("Hello");    // 创建一个节点
-	    node.setLocation(300,200);    // 设置节点坐标                    
-	    scene.add(node); // 放入到场景中
-		
-	    
-	    
-	    
-	    
-	});
-	
-
+ });
 	
 	
-	
-	
+   
 </script>
 </head>
 <body class="easyui-layout" >
@@ -84,8 +70,8 @@ html, body {
 		 <table   id="class-struct" fit="true" border="0"></table>  
 	</div>
 	<div  region="center"  split="true"  style="width:80%;border:0px;" >
-		<canvas width="800"height="500"id="canvas"style=" background-color:#EEEEEE; border:1px solid #444;">
-</canvas>
+		   <div style="left: 492px; top: 219px; z-index: 20;" id="B0887C4B-4D1E-1417-5AFC-2DFD99B8D713" class="gradient_node component window " flowid="32" labeltitle="" stepSeq="1" parentid="CE6BBE65-DB5A-0379-CC70-BF45337D7029"> <div><p class="p_title" title="xxxxxx">xxxx</p><a class="flow_left_padding hide"><span class="view" title="查看" onclick="OpenFlowDetail(this)">&nbsp;</span><span class="delete" title="删除" onclick="DragFlow.DeleteItems('B0887C4B-4D1E-1417-5AFC-2DFD99B8D713')">&nbsp;</span></a></div><div class="ep" title="拖动连线"> </div></div>
+		 
 	</div>
  
 </body>

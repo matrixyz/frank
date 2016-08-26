@@ -3,7 +3,7 @@
             "productid":"11",
             "listprice":"333",
             "unitcost":"user",
-            "attr1":"这个是用户表",
+            "attr1":"这个东西怎么样",
              "status":"1",
             "action":"www.baidu.com"
         },
@@ -12,7 +12,7 @@
             "productid":"11",
             "listprice":"333",
             "unitcost":"user",
-            "attr1":"这个是用户表",
+            "attr1":"我们好好说",
              "status":"1",
             "action":"www.baidu.com"
         },
@@ -21,7 +21,7 @@
             "productid":"11",
             "listprice":"333",
             "unitcost":"user",
-            "attr1":"这个是用户表",
+            "attr1":"考虑看到了积分等级",
              "status":"1",
             "action":"www.baidu.com"
         }]

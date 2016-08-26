@@ -1,16 +1,16 @@
 [
-	{"name":"Name","value":"Bill Smith","group":"ID Settings","editor":"text"},
-	{"name":"Address","value":"","group":"ID Settings","editor":"text"},
-	{"name":"Age","value":"40","group":"ID Settings","editor":"numberbox"},
-	{"name":"Birthday","value":"01/02/2012","group":"ID Settings","editor":"datebox"},
-	{"name":"SSN","value":"123-456-7890","group":"ID Settings","editor":"text"},
-	{"name":"Email","value":"bill@gmail.com","group":"Marketing Settings","editor":{
+	{"name":"表名","value":"Bill Smith","group":"基本信息","editor":"text"},
+	{"name":"类型","value":"","group":"基本信息","editor":"text"},
+	{"name":"字符集","value":"40","group":"基本信息","editor":"numberbox"},
+	{"name":"备注","value":"01/02/2012","group":"基本信息","editor":"datebox"},
+	{"name":"SSN","value":"123-456-7890","group":"基本信息","editor":"text"},
+	{"name":"Email","value":"bill@gmail.com","group":"索引","editor":{
 		"type":"validatebox",
 		"options":{
 			"validType":"email"
 		}
 	}},
-	{"name":"FrequentBuyer","value":"false","group":"Marketing Settings","editor":{
+	{"name":"FrequentBuyer","value":"false","group":"索引","editor":{
 		"type":"checkbox",
 		"options":{
 			"on":true,

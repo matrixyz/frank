@@ -36,6 +36,7 @@ html, body {
 					
 					//var products= {"TableTennis","Basketball","Swimming","Athletics"};
 					var editRow = undefined;
+					var editRow_table = undefined;
 					var Address = [{ "value": "1", "text": "CHINA" }, { "value": "2", "text": "USA" }, { "value": "3", "text": "Koren" }];
  					var datagrid_table=$("#tt");
  					datagrid_table.datagrid({
@@ -53,29 +54,29 @@ html, body {
 							{field:'action',title:'描述',width:70,align:'center',editor:{type:'validatebox',options: {required: true,missingMessage:'请输入题目'}} }
 						]],
 						onAfterEdit: function (rowIndex, rowData, changes) {
-				            editRow = undefined;				
+				            editRow_table = undefined;				
 				        },				
 				        onDblClickRow: function (rowIndex, rowData) {				
-				            if (editRow != undefined) {
-				            	datagrid_table.datagrid('endEdit', editRow);				
+				            if (editRow_table != undefined) {
+				            	datagrid_table.datagrid('endEdit', editRow_table);				
 				            }				
-				            if (editRow == undefined) {				
+				            if (editRow_table == undefined) {				
 				            	datagrid_table.datagrid('beginEdit', rowIndex);				
-				                editRow = rowIndex;				
+				                editRow_table = rowIndex;				
 				            }				
 				        },				
 				        onClickRow: function (rowIndex, rowData) {				
-				            if (editRow != undefined) {				
-				            	datagrid_table.datagrid('endEdit', editRow);
+				            if (editRow_table != undefined) {				
+				            	datagrid_table.datagrid('endEdit', editRow_table);
 							}				
 				        },
 				        toolbar: [{ text: '添加', iconCls: 'icon-add', handler: function () {//添加列表的操作按钮添加，修改，删除等
 					                    //添加时先判断是否有开启编辑的行，如果有则把开户编辑的那行结束编辑
-					                    if (editRow != undefined) {
-					                    	datagrid_table.datagrid("endEdit", editRow);
+					                    if (editRow_table != undefined) {
+					                    	datagrid_table.datagrid("endEdit", editRow_table);
 					                    }
 					                    //添加时如果没有正在编辑的行，则在datagrid的第一行插入一行
-					                    if (editRow == undefined) {
+					                    if (editRow_table == undefined) {
 					                    	datagrid_table.datagrid("insertRow", {
 					                            index: 0, // index start with 0
 					                            row: {
@@ -85,7 +86,7 @@ html, body {
 					                        //将新插入的那一行开户编辑状态
 					                        datagrid_table.datagrid("beginEdit", 0);
 					                        //给当前编辑的行赋值
-					                        editRow = 0;
+					                        editRow_table = 0;
 					                    }
 					
 					                }
@@ -118,17 +119,17 @@ html, body {
 					                     //如果只选择了一行则可以进行修改，否则不操作
 					                     if (rows.length == 1) {
 					                         //修改之前先关闭已经开启的编辑行，当调用endEdit该方法时会触发onAfterEdit事件
-					                         if (editRow != undefined) {
-					                        	 datagrid_table.datagrid("endEdit", editRow);
+					                         if (editRow_table != undefined) {
+					                        	 datagrid_table.datagrid("endEdit", editRow_table);
 					                         }
 					                         //当无编辑行时
-					                         if (editRow == undefined) {
+					                         if (editRow_table == undefined) {
 					                             //获取到当前选择行的下标
 					                             var index = datagrid_table.datagrid("getRowIndex", rows[0]);
 					                             //开启编辑
 					                             datagrid_table.datagrid("beginEdit", index);
-					                             //把当前开启编辑的行赋值给全局变量editRow
-					                             editRow = index;
+					                             //把当前开启编辑的行赋值给全局变量editRow_table
+					                             editRow_table = index;
 					                             //当开启了当前选择行的编辑状态之后，
 					                             //应该取消当前列表的所有选择行，要不然双击之后无法再选择其他行进行编辑
 					                             datagrid_table.datagrid("unselectAll");
@@ -138,12 +139,12 @@ html, body {
 					                 }, '-',
 					                 { text: '保存', iconCls: 'icon-save', handler: function () {
 					                     //保存时结束当前编辑的行，自动触发onAfterEdit事件如果要与后台交互可将数据通过Ajax提交后台
-					                     datagrid_table.datagrid("endEdit", editRow);
+					                     datagrid_table.datagrid("endEdit", editRow_table);
 					                 }
 					                 }, '-',
 					                 { text: '取消编辑', iconCls: 'icon-redo', handler: function () {
 					                     //取消当前编辑行把当前编辑行罢undefined回滚改变的数据,取消选择的行
-					                     editRow = undefined;
+					                     editRow_table = undefined;
 					                     datagrid_table.datagrid("rejectChanges");
 					                     datagrid_table.datagrid("unselectAll");
 					                 }

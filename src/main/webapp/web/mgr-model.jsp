@@ -145,7 +145,7 @@ html, body {
 					                 { text: '取消编辑', iconCls: 'icon-redo', handler: function () {
 					                     //取消当前编辑行把当前编辑行罢undefined回滚改变的数据,取消选择的行
 					                     editRow_table = undefined;
-					                     datagrid_table.datagrid("rejectChanges");
+					                     datagrid_table.datagrid("rejeadfctChanges");
 					                     datagrid_table.datagrid("unselectAll");
 					                 }
 					                 }, '-'],

@@ -49,7 +49,12 @@ html, body {
 							{field:'itemid',title:'字段索引',width:60},
 							{field:'productid',title:'字段名称',width:100},
 							{field:'listprice',title:'类型',width:80,align:'right'},
-							{field:'unitcost',title:'默认值',width:80,align:'right' },
+							{field:'unitcost',title:'默认值',width:80,align:'right',
+								formatter:function (value, row, index) {
+									var s = '<input name="isShow" type="radio" checked="checked" onclick="clk()"/> ';
+				                    return s;  
+				                }
+							},
 							{field:'attr1',title:'允许空1',width:150, editor: { type: 'combobox', options: { data: Address, valueField: "value", textField: "text" } }},
 							{field:'action',title:'描述',width:70,align:'center',editor:{type:'validatebox',options: {required: true,missingMessage:'请输入题目'}} }
 						]],
@@ -70,7 +75,7 @@ html, body {
 				            	datagrid_table.datagrid('endEdit', editRow_table);
 							}				
 				        },
-				        toolbar: [{ text: '添加', iconCls: 'icon-add', handler: function () {//添加列表的操作按钮添加，修改，删除等
+				        toolbar: [{ text: '添加1', iconCls: 'icon-add', handler: function () {//添加列表的操作按钮添加，修改，删除等
 					                    //添加时先判断是否有开启编辑的行，如果有则把开户编辑的那行结束编辑
 					                    if (editRow_table != undefined) {
 					                    	datagrid_table.datagrid("endEdit", editRow_table);

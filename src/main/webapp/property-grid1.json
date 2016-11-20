@@ -1,0 +1,19 @@
+[
+	{"name":"表名","value":"Bill Smith","group":"基本信息","editor":"text"},
+	{"name":"类型","value":"","group":"基本信息","editor":"text"},
+	{"name":"字符集","value":"40","group":"基本信息","editor":"numberbox"},
+	{"name":"备注","value":"01/02/2012","group":"基本信息","editor":"datebox"},
+	{"name":"SSN","value":"123-456-7890","group":"基本信息","editor":"text"},
+	{"name":"Email","value":"男","group":"索引","editor":{
+		"type":"combobox",
+		"options":{ "data": [{"value":"男", "text": "男" },{ "value":"女", "text": "女"}], "panelHeight": "auto"
+		}
+	}},
+	{"name":"FrequentBuyer","value":"false","group":"索引","editor":{
+		"type":"checkbox",
+		"options":{
+			"on":true,
+			"off":false
+		}
+	}}
+]

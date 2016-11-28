@@ -30,6 +30,35 @@ html, body {
 				}
 				  
 				$(function() {
+					
+					
+					
+					/****************************************************************************  */
+					/* 表属性propertygrid开始 */
+					$("#table_struct").propertygrid(
+					{
+						width : 'auto',
+						height : 'auto',
+						url:'/property-grid1.json',
+						columns : [ [
+								{
+									field : 'name',
+									title : 'Name',
+									width : 100,
+									sortable : true
+								},
+								{
+									field : 'value',
+									title : 'Value',
+									width : 200
+								} ] ],
+						showGroup : true,
+						scrollbarSize : 0
+					});
+					/* 表属性propertygrid结束 */
+					/****************************************************************************  */
+					
+					
 					/****************************************************************************  */
 					/* 表管理开始 */
 					
@@ -145,6 +174,10 @@ html, body {
 					                 { text: '保存', iconCls: 'icon-save', handler: function () {
 					                     //保存时结束当前编辑的行，自动触发onAfterEdit事件如果要与后台交互可将数据通过Ajax提交后台
 					                     datagrid_table.datagrid("endEdit", editRow_table);
+					                     var arr=$("#table_struct").propertygrid("getData");
+					                     var value=arr.rows[0].value; 
+					                     alert(value);
+					                     
 					                 }
 					                 }, '-',
 					                 { text: '取消编辑', iconCls: 'icon-redo', handler: function () {
@@ -355,7 +388,7 @@ html, body {
 		</div>		
 	
 	<!-- 表管理开始 -->
-		<div title="表管理"    style="padding: 10px;" >
+		<div title="表管理"    style="padding: 10px;" data-options="selected:true">
 			<div  class="easyui-layout" data-options="fit:true">
 				<div  region="west" style="width:50%;" >
 					    <table title="项目表"  id="ttx" fit="true" border="0"></table>  
@@ -363,12 +396,12 @@ html, body {
 				<div  region="center"  style="padding-left:5px;border:0px;" >
 					
 					<div  class="easyui-layout" data-options="fit:true">
-						<div  region="north"  style="height:30%;border:0px;">
-					    	<table   class="easyui-propertygrid" fit="true"
-					                url="/property-grid.json"
-					                showGroup="true" scrollbarSize="0"></table>
+						<div  region="north"  style="height:50%;border:0px;">
+					    	 
+					                
+					        <table id="table_struct" class="easyui-propertygrid" fit="true"></table>         
 						</div>
-						<div  region="center" style="height:70%;border:0px;"  >
+						<div  region="center" style="height:50%;border:0px;"  >
 					    	 <table id="tt" class="easyui-datagrid"   fit="true" ></table> 
 						</div>
 					</div>
@@ -385,12 +418,13 @@ html, body {
 				<div  region="center"  style="padding-left:5px;border:0px;" >
 					
 					<div  class="easyui-layout" data-options="fit:true">
-						<div  region="north"  style="height:30%;border:0px;">
-					    	<table   class="easyui-propertygrid" fit="true"
+						<div  region="north"  style="height:50%;border:0px;">
+					    	 <table   class="easyui-propertygrid" fit="true"
 					                url="/property-grid.json"
-					                showGroup="true" scrollbarSize="0"></table>
+					                showGroup="true" scrollbarSize="0"></table>  
+					               
 						</div>
-						<div  region="center" style="height:70%;border:0px;"  >
+						<div  region="center" style="height:50%;border:0px;"  >
 					    	 <table id="class-property" class="easyui-datagrid"   fit="true" ></table> 
 						</div>
 					</div>

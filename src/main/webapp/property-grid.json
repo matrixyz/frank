@@ -4,7 +4,7 @@
 	{"name":"字符集","value":"40","group":"基本信息","editor":"numberbox"},
 	{"name":"备注","value":"01/02/2012","group":"基本信息","editor":"datebox"},
 	{"name":"SSN","value":"123-456-7890","group":"基本信息","editor":"text"},
-	{"name":"Email","value":"bill@gmail.com","group":"索引","editor":{
+	{"name":"Email","value":"bill@gmail.com1","group":"索引","editor":{
 		"type":"validatebox",
 		"options":{
 			"validType":"email"

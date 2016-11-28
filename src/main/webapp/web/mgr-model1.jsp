@@ -44,7 +44,7 @@ html, body {
 							});
 					
 					
-					$.extend($.fn.propertygrid.defaults.columns[0][1], {
+					/* $.extend($.fn.propertygrid.defaults.columns[0][1], {
 						formatter : function(value, rowData, rowIndex) {
 							if (rowData.name == "Email") {// 如果是"性格属性"
 								return value == "男" ? "男" : "女";
@@ -52,7 +52,7 @@ html, body {
 								return value;
 							}
 						}
-					});
+					}); */
 				});
 			</script>
 </head>

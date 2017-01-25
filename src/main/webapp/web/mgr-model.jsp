@@ -66,7 +66,8 @@ html, body {
 					//var products= {"TableTennis","Basketball","Swimming","Athletics"};
 					var editRow = undefined;
 					var editRow_table = undefined;
-					var Address = [{ "value": "1", "text": "CHINA" }, { "value": "2", "text": "USA" }, { "value": "3", "text": "Koren" }];
+					var Address = [{ "value": "CHINA", "text": "CHINA" }, { "value": "USA", "text": "USA" }, { "value": "Koren", "text": "Koren" }];
+					var fieldType = [{ "value": "int", "text": "int" }, { "value": "double", "text": "double" }, { "value": "nvarchar", "text": "nvarchar" }];
  					var datagrid_table=$("#tt");
  					datagrid_table.datagrid({
 						
@@ -76,11 +77,12 @@ html, body {
 						url:'/datagrid_data.json',
 						columns:[[
 							{field:'itemid',title:'字段索引',width:60},
-							{field:'productid',title:'字段名称',width:100},
-							{field:'listprice',title:'类型',width:80,align:'right'},
+							{field:'productid',title:'字段名称',width:100,editor:{type:'validatebox',options: {required: true,missingMessage:'请输入字段名称'}}},
+							{field:'listprice',title:'类型',width:80,align:'right',editor: { type: 'combobox', options: { data: fieldType, valueField: "value", textField: "text" } }},
 							{field:'unitcost',title:'默认值',width:80,align:'right',
 								formatter:function (value, row, index) {
-									var s = '<input name="isShow" type="radio" checked="checked" onclick="clk()"/> ';
+									var s = 'A<input name="isShow" type="radio" checked="checked" onclick="clk()"/> ';
+									 s+= 'B<input name="isShow" type="radio"   onclick="clk()"/> ';
 				                    return s;  
 				                }
 							},
@@ -97,7 +99,7 @@ html, body {
 				            if (editRow_table == undefined) {				
 				            	datagrid_table.datagrid('beginEdit', rowIndex);				
 				                editRow_table = rowIndex;				
-				            }				
+				            }			 
 				        },				
 				        onClickRow: function (rowIndex, rowData) {				
 				            if (editRow_table != undefined) {				
@@ -186,7 +188,7 @@ html, body {
 					                     datagrid_table.datagrid("rejeadfctChanges");
 					                     datagrid_table.datagrid("unselectAll");
 					                 }
-					                 }, '-'],
+					                 }, '-']
 					});
 					
 				    $('#ttx').treegrid({
@@ -209,7 +211,51 @@ html, body {
 				            
 				            },width:60,align:'right'},
 				            {field:'obj_comment',title:'描述',width:160,align:'right'}
-				        ]]
+				        ]],
+				        
+				        toolbar: [{ text: '添加1', iconCls: 'icon-add', handler: function () {//添加列表的操作按钮添加，修改，删除等
+					                    //添加时先判断是否有开启编辑的行，如果有则把开户编辑的那行结束编辑
+					                    if (editRow_table != undefined) {
+					                    	datagrid_table.datagrid("endEdit", editRow_table);
+					                    }
+					                    //添加时如果没有正在编辑的行，则在datagrid的第一行插入一行
+					                    if (editRow_table == undefined) {
+					                    	datagrid_table.datagrid("insertRow", {
+					                            index: 0, // index start with 0
+					                            row: {
+					
+					                            }
+					                        });
+					                        //将新插入的那一行开户编辑状态
+					                        datagrid_table.datagrid("beginEdit", 0);
+					                        //给当前编辑的行赋值
+					                        editRow_table = 0;
+					                    }
+					
+					                }
+					                }, '-',
+					                 { text: '删除', iconCls: 'icon-remove', handler: function () {
+					                     //删除时先获取选择行
+					                     var rows = datagrid_table.datagrid("getSelections");
+					                     //选择要删除的行
+					                     if (rows.length > 0) {
+					                         $.messager.confirm("提示", "你确定要删除吗?", function (r) {
+					                             if (r) {
+					                                 var ids = [];
+					                                 for (var i = 0; i < rows.length; i++) {
+					                                     ids.push(rows[i].ID);
+					                                 }
+					                                 //将选择到的行存入数组并用,分隔转换成字符串，
+					                                 //本例只是前台操作没有与数据库进行交互所以此处只是弹出要传入后台的id
+					                                 alert(ids.join(','));
+					                             }
+					                         });
+					                     }
+					                     else {
+					                         $.messager.alert("提示", "请选择要删除的行", "error");
+					                     }
+					                 }
+					                 } , '-']
 				    });
 					
 					

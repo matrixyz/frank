@@ -1,7 +1,7 @@
 [{
             "itemid":25,
             "productid":"11",
-            "listprice":"333",
+            "listprice":"int",
             "unitcost":"user",
             "attr1":"这个东西怎么样",
              "status":"1",
@@ -10,7 +10,7 @@
                 {
             "itemid":26,
             "productid":"11",
-            "listprice":"333",
+            "listprice":"int",
             "unitcost":"user",
             "attr1":"我们好好说",
              "status":"1",
@@ -19,7 +19,7 @@
                 {
             "itemid":27,
             "productid":"11",
-            "listprice":"333",
+            "listprice":"int",
             "unitcost":"user",
             "attr1":"考虑看到了积分等级",
              "status":"1",

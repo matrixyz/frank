@@ -1,0 +1,36 @@
+{
+    "total":3,
+    "rows":[
+        {
+            "id":25,
+            "file_nam":"src",
+            "package":".",
+            "type":"pro",
+            "operate":"aaxxa",
+             "obj_comment":"这是一个项目的根",
+            "orderId":25
+        },
+        {
+            "id":26,
+            "file_nam":"UserCtl",
+            "package":"com.controller",
+            "type":"java",
+            "operate":"aaxxa",
+             "obj_comment":"这是一个类",
+            
+            "_parentId":25,
+            "orderId":21
+        },
+        {
+            "id":45,
+            "file_nam":"userLogin",
+            "package":"com.controller.UserCtl",
+            "type":"method",
+            "operate":"aaxxa",
+             "obj_comment":"这是一个类中的方法",
+            "state":"closed",
+            "_parentId":26,
+            "orderId":11
+        }
+    ]
+}

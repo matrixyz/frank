@@ -6,10 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
- 
-
- 
+import org.springframework.web.bind.annotation.RequestMapping; 
 import com.binli.agiledev.dao.mapping.*;
 import com.binli.agiledev.dao.model.User;
 import com.binli.agiledev.dao.mapper.*;
@@ -19,6 +16,7 @@ import com.binli.agiledev.util.PageBean;
 @Controller
 @RequestMapping("/user")
 public class UserCtl extends BaseCtl{
+
 
 	 
 	@Autowired

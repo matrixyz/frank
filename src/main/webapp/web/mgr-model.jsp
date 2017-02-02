@@ -63,12 +63,12 @@ html, body {
 					/* 表管理开始 */
 					
 					
-					//var products= {"TableTennis","Basketball","Swimming","Athletics"};
+					/* 表字段显示的datagrid的数据操作和绑定 */
 					var editRow = undefined;
 					var editRow_table = undefined;
-					var Address = [{ "value": "CHINA", "text": "CHINA" }, { "value": "USA", "text": "USA" }, { "value": "Koren", "text": "Koren" }];
+					
 					var fieldType = [{ "value": "int", "text": "int" }, { "value": "double", "text": "double" }, { "value": "nvarchar", "text": "nvarchar" }];
- 					var datagrid_table=$("#tt");
+ 					var datagrid_table=$("#table_column_dg");//表字段的描述
  					datagrid_table.datagrid({
 						
 						
@@ -79,14 +79,14 @@ html, body {
 							{field:'itemid',title:'字段索引',width:60},
 							{field:'productid',title:'字段名称',width:100,editor:{type:'validatebox',options: {required: true,missingMessage:'请输入字段名称'}}},
 							{field:'listprice',title:'类型',width:80,align:'right',editor: { type: 'combobox', options: { data: fieldType, valueField: "value", textField: "text" } }},
-							{field:'unitcost',title:'默认值',width:80,align:'right',
+							{field:'unitcost',title:'默认值',width:80,align:'right',editor:{type:'validatebox',options: {required: true,missingMessage:'请输入默认值'}} },
+							{field:'attr1',title:'允许空1',width:50, 
 								formatter:function (value, row, index) {
-									var s = 'A<input name="isShow" type="radio" checked="checked" onclick="clk()"/> ';
-									 s+= 'B<input name="isShow" type="radio"   onclick="clk()"/> ';
+							 
+									var s = '<input name="isShow" type="checkbox" onclick="clk()"/> '; 
 				                    return s;  
-				                }
+			                	}
 							},
-							{field:'attr1',title:'允许空1',width:150, editor: { type: 'combobox', options: { data: Address, valueField: "value", textField: "text" } }},
 							{field:'action',title:'描述',width:70,align:'center',editor:{type:'validatebox',options: {required: true,missingMessage:'请输入题目'}} }
 						]],
 						onAfterEdit: function (rowIndex, rowData, changes) {
@@ -106,7 +106,7 @@ html, body {
 				            	datagrid_table.datagrid('endEdit', editRow_table);
 							}				
 				        },
-				        toolbar: [{ text: '添加1', iconCls: 'icon-add', handler: function () {//添加列表的操作按钮添加，修改，删除等
+				        toolbar: [{ text: '添加', iconCls: 'icon-add', handler: function () {//添加列表的操作按钮添加，修改，删除等
 					                    //添加时先判断是否有开启编辑的行，如果有则把开户编辑的那行结束编辑
 					                    if (editRow_table != undefined) {
 					                    	datagrid_table.datagrid("endEdit", editRow_table);
@@ -214,24 +214,42 @@ html, body {
 				        ]],
 				        
 				        toolbar: [{ text: '添加1', iconCls: 'icon-add', handler: function () {//添加列表的操作按钮添加，修改，删除等
-					                    //添加时先判断是否有开启编辑的行，如果有则把开户编辑的那行结束编辑
-					                    if (editRow_table != undefined) {
-					                    	datagrid_table.datagrid("endEdit", editRow_table);
-					                    }
-					                    //添加时如果没有正在编辑的行，则在datagrid的第一行插入一行
-					                    if (editRow_table == undefined) {
-					                    	datagrid_table.datagrid("insertRow", {
-					                            index: 0, // index start with 0
-					                            row: {
-					
-					                            }
-					                        });
-					                        //将新插入的那一行开户编辑状态
-					                        datagrid_table.datagrid("beginEdit", 0);
-					                        //给当前编辑的行赋值
-					                        editRow_table = 0;
-					                    }
-					
+					                   // alert(12);
+				        
+				        			var a=[{
+				        	            "itemid":25,
+				        	            "productid":"112",
+				        	            "listprice":"int",
+				        	            "unitcost":"user",
+				        	            "attr1":"这个东西怎么样",
+				        	             "status":"1",
+				        	            "action":"www.ddddd"
+				        	        },
+				        	                {
+				        	            "itemid":26,
+				        	            "productid":"113",
+				        	            "listprice":"int",
+				        	            "unitcost":"user",
+				        	            "attr1":"我们好好说",
+				        	             "status":"1",
+				        	            "action":"www.dddd.com"
+				        	        },
+				        	                {
+				        	            "itemid":27,
+				        	            "productid":"151",
+				        	            "listprice":"int",
+				        	            "unitcost":"user",
+				        	            "attr1":"考虑看到了dddd等级",
+				        	             "status":"1",
+				        	            "action":"www.dd.com"
+				        	        }];
+				        
+				        
+				         
+				        
+				        
+				        
+					                    $('#table_column_dg').datagrid('loadData', a);
 					                }
 					                }, '-',
 					                 { text: '删除', iconCls: 'icon-remove', handler: function () {
@@ -267,25 +285,25 @@ html, body {
 					/****************************************************************************  */
 					/* 类管理开始 */
 				    $('#pro-class').treegrid({
-				        url:'/test.json',
+				        url:'/file-tree.json',
 				        idField:'id',
-				        treeField:'db_nam',
+				        treeField:'file_nam',
 				        columns:[[
-				            {title:'数据库名称',field:'db_nam',width:180},
-				            {field:'pro_nam',title:'项目名称',width:60,align:'right'},
-				            {field:'obj_nam',title:'对象名称',width:60,align:'right'},
+				            {title:'名称',field:'file_nam',width:180},
+				            {field:'package',title:'包名称',width:140,align:'left'},
+				            {field:'type',title:'文件类型',width:60,align:'left'},
 				           
-				            {field:'obj_type',title:'创建新表',
+				            {field:'operate',title:'操作',
 				            formatter:function(value,rowData,rowIndex){
 				            	
 				            	if(rowData.state=='open'){
-				            		return '<a href="#">创建表</a>';
+				            		return '<a href="#">创建文件</a>';
 				            	}
 				            	
 				            	return '<a href="#"> 编辑</a>|<a href="#"> 删除</a>';
 				            
 				            },width:60,align:'right'},
-				            {field:'obj_comment',title:'描述',width:160,align:'right'}
+				            {field:'obj_comment',title:'描述',width:160,align:'left'}
 				        ]]
 				    });
 				    var datagrid=$("#class-property");
@@ -448,7 +466,7 @@ html, body {
 					        <table id="table_struct" class="easyui-propertygrid" fit="true"></table>         
 						</div>
 						<div  region="center" style="height:50%;border:0px;"  >
-					    	 <table id="tt" class="easyui-datagrid"   fit="true" ></table> 
+					    	 <table id="table_column_dg" class="easyui-datagrid"   fit="true" ></table> 
 						</div>
 					</div>
 				</div>

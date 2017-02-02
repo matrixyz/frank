@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 该文档定义了代码自动提示环境中的各种元素的行为
+1、所有可能出现在源代码里的某种 元素 可以被当前自动提示激活的触发条件。
+2、 当用户鼠标焦点固定到任意一个代码编辑区的元素上的时候，将触发自动提示引擎进行当前用户行为分析，并根据
+以往配置学习的到的历史记录得出最优选择结果提示给用户。
+ -->
+<beans nam="java-class">
+<bean name="constants" type="cons"><!--该元素定义了可以被该文档其他元素引用 的变量  -->
+<property name="head">top</property>
+<property name="public">public,private,protect,default</property>
+</bean>
+<!-- 该元素指的是java源代码里的 package关键字 -->
+<bean name="package" type="elem">
+<!-- 该属性定义该元素在系统层次可以操作的相关属性 -->
+<property>
+<lable>包路径</lable>
+<type>text</type>
+</property>
+
+<!-- 该属性定义该元素在自动提示环境下感知上下文的条件信息 -->
+<context>
+<!-- 说明该元素前面可以出现什么元素 -->
+<pre>$head</pre><!-- $表示变量，引用的是  bean[name=constants]的节点的某个属性 -->
+<!-- 说明该元素 可以出现在什么元素内部 -->
+<parent>body</parent>
+<!-- 说明该元素后面可以出现什么元素 -->
+<after>import,$public</after>
+<line>true</line><!-- 凡是出现在该元素后面的元素，必须换行 -->
+</context>
+</bean>
+
+
+
+<!-- 该元素指的是java源代码里的 注解，该注解在springMVC开发模式下 才可以被触发  -->
+<bean name="@Scope" type="elem">
+<!-- 该属性定义该元素在系统层次可以操作的相关属性,并且使用引用标记进行引用了某个通用的模板 -->
+<property ref="">
+<!-- 虽然该元素已经应用了相应的  模板，但是内部再重新定义的话则类似css 继承并覆盖 应用的模板属性 -->
+<template>@Scope("$child")</template>
+<!-- template  该标记说明该元素在编辑器里出现的时候的显示形式，$child代表占位符，说明该位置
+需要本元素内部的child元素里的值来给用户选择，这个选择的形式在property的属性里定义
+ -->
+
+ </property>
+
+<!-- 该属性定义该元素在自动提示环境下感知上下文的条件信息 -->
+<context>
+<!-- 说明该元素前面可以出现什么元素 -->
+<pre>import</pre><!-- $表示变量，引用的是  bean[name=constants]的节点的某个属性 -->
+<!-- 说明该元素 可以出现在什么元素内部 -->
+<child>prototype,request,session,globalSession</child>
+<!-- 说明该元素后面可以出现什么元素 -->
+<after>class</after>
+<mod type="dev">springmvc</mod><!-- 说明该元素必须是在  模式  type=dev 且值为springmvc的情况下可以被触发 -->
+</context>
+</bean>
+</beans>

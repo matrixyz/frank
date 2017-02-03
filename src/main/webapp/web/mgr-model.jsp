@@ -450,7 +450,10 @@ html, body {
 			
 			<iframe  frameborder="0" style="width:100%;height:100%" src="/web/mgr-class-diagram.jsp" ></iframe>
 		</div>		
-	
+		<div title="CodeMgr" style="padding: 10px;" iconCls="icon-reload">
+			
+			 <%@include file="code-editor.jsp" %>
+		</div>
 	<!-- 表管理开始 -->
 		<div title="表管理"    style="padding: 10px;" data-options="selected:true">
 			<div  class="easyui-layout" data-options="fit:true">

@@ -30,6 +30,10 @@
 </bean>
 
 
+<bean name="some-busi" type="busi">
+
+</bean>
+
 
 <!-- 该元素指的是java源代码里的 注解，该注解在springMVC开发模式下 才可以被触发  -->
 <bean name="@Scope" type="elem">

@@ -25,6 +25,43 @@
 	            {field:'obj_comment',title:'描述',width:160,align:'left'}
 	        ]]
 	    });
+		
+		/* 解析 code-defined.xml 开始 */
+		/* 读取code-defined.xml */
+		parentFn.get-code-defined_xml=function(){
+		  $.ajax({
+		      url:'/web/code-defined.xml',
+		      type: 'GET',
+		      dataType: 'xml',
+		      timeout: 1000,
+		      cache:false,
+		      error: function(xml){
+		        alert('加载XML文档出错');
+		      },
+		      success: function(xml){
+		        //建立一个代码片段
+		        var frag=$("<ul/>");
+		        //遍历所有student节点
+		        $(xml).find("student").each(function(i){
+		          //获取id节点
+		          var id=$(this).children("id"),
+		          //获取节点文本
+		            id_value=id.text(),
+		          //获取student下的email属性。
+		            email=$(this).attr("email");
+		          //构造HTML字符串，通过append方法添加进之前建立代码片段
+		          frag.append("<li>"+id_value+"-"+email+"</li>");
+		        });
+		        //最后得到的frag添加进HTML文档中
+		        frag.appendTo("#load");
+		      }
+		    });
+		
+		}
+	    /* 解析 code-defined.xml 结束 */
+		
+		
+		
 	});
 </script>
 <style type="text/css">

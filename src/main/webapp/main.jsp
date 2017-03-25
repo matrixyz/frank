@@ -1,75 +1,12 @@
 <%@ page language="java" pageEncoding="UTF-8" contentType="text/html; charset=utf-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="s"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html> 
-<head>
-<meta charset="UTF-8">
-<title>like a man</title>
-<link rel="stylesheet" type="text/css" href="js/easyui/themes/default/easyui.css">
-<link rel="stylesheet" type="text/css" href="js/easyui/themes/icon.css">
-<style type="text/css">  
-        html,body  
-        {  
-            height:100%;  
-            margin:0 auto;  
-        }  
-    </style>
-<script type="text/javascript" src="js/easyui/jquery.min.js"></script>
-<script type="text/javascript" src="js/easyui/jquery.easyui.min.js"></script>
-<script type="text/javascript">
-		var parentFn=new Object();
-		parentFn.allTitle=new Array();//用来存储所有选项卡的标题
-		function MathRand()
-		{//该函数为了防止IE缓存页面，造成 datagrid 刷新无反应
-			var Num="";
-			for(var i=0;i<8;i++)
-			{
-				Num+=Math.floor(Math.random()*10);
-			}
-			return Num;
-		} 
-		 
+<%@ include file="../sys-top.jsp"%>
+<script type="text/javascript">		 
 		
 		$(function(){ 
 			 
 			/****************************************************************************  */
 			/*   */
-			//获取滚动信息栏信息
-			parentFn.getMessage=function(){
-				
-				
-				$.ajax({
-					type: "get",
-					url:"/main/message?cmd=getMessage&rand="+MathRand(),					
-					dataType: "json",
-					
-					success:function(data){
-						if(data!=undefined&&data.length>0){
-							$("#messageDiv").empty();
-							for(var i=0;i<data.length;i++){
-								
-								$("#messageDiv").append($("<a href=\"#\" onclick=\"showmessageWin('"+data[i].id+"')\" style=\"position:absolute;display:none;left:620px;\">"+data[i].title+"</a>&nbsp;&nbsp;"));
-							}
-							clearInterval(parentFn.timer1);
-							parentFn.timer1=setInterval(function(){
 			 
-							  $("#messageDiv").find("a:first").css({display:""}).animate({
-							    left:"-400px"
-							  },20000,function(){
-							  
-							    $("#messageDiv").find("a:first").appendTo($("#messageDiv"));
-							      $("#messageDiv").find("a:first").css({display:"none",left:"620px"});
-							  });
-							},20000);
-							
-							 $('#show_data').window('close');
-						}
-					},
-					error: function (XMLHttpRequest, textStatus, errorThrown) {
-							alert(errorThrown);
-					}
-				});	
-			}	
 			 
 			/** 动态添加tab-----方式二     **/ 
 			parentFn.initTab=function(){  
@@ -120,8 +57,6 @@
 
 			parentFn.addWindow=function(src ){  
 				$('#show_data').empty();
- 
-
 				$('#show_data').append("<iframe frameborder='0' src='"+src+"' width='100%' height='100%' border='0' ></iframe>");
                 $('#show_data').window('open');
 			
@@ -131,37 +66,8 @@
                 $('#show_data').window('close');
 			
 			}
-			parentFn.clearCache=function(){
-				 
-				
-				$.ajax({
-					type: "get",
-					url:"/main/sys?cmd=init_stu_do_exam&rand=",					
-					dataType: "text",					
-					success:function(data){
-						if(data!=null&&data=="true"){
-							alert("缓存清除成功!");
-						}else{
-							  alert("缓存清除失败!");
-						}					
-					},
-					error: function (XMLHttpRequest, textStatus, errorThrown) {
-							alert(errorThrown);
-					}
-				});	
-			}
-			/*   */
-			/****************************************************************************  */
 			
-			
-
-			
-			
-			
-			
-			
-			
-			
+			 
 			
 			window.onload=function()
 			{

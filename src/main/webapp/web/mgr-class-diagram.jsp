@@ -4,23 +4,28 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
+ 
 	<title>like a man</title>
-	<link rel="stylesheet" type="text/css"
-		href="/js/easyui/themes/default/easyui.css">
-		<link rel="stylesheet" type="text/css"
-			href="/js/easyui/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="/js/easyui/themes/default/easyui.css"/>
+	 <link rel="stylesheet" type="text/css" href="/js/easyui/themes/icon.css"/>
 
 			<style type="text/css">
 html, body {
 	height: 100%;
 	margin: 0 auto;
-	background: #ccc;
+ 
+}
+.line{
+position:absolute;
+left:0px;
+top:100px;
+ 
+border:1px solid #f90;
 }
 </style>
 			<script type="text/javascript" src="/js/easyui/jquery.min.js"></script>
 			<script type="text/javascript" src="/js/easyui/jquery.easyui.min.js"></script>
-			<script type="text/javascript" src="/js/jsplumb/jsPlumb-2.1.5.js"></script>
+		 
 
 
 
@@ -36,77 +41,33 @@ html, body {
 				}
 
 				$(function() {
-					$('#class-struct')
-							.treegrid(
-									{
-										url : '/test.json',
-										idField : 'id',
-										treeField : 'db_nam',
-										columns : [ [
-												{
-													title : '数据库名称',
-													field : 'db_nam',
-													width : 60
-												},
-												{
-													field : 'pro_nam',
-													title : '项目名称',
-													width : 60,
-													align : 'right'
-												},
-												{
-													field : 'obj_nam',
-													title : '对象名称',
-													width : 60,
-													align : 'right'
-												},
-
-												{
-													field : 'obj_type',
-													title : '创建新表',
-													formatter : function(value,
-															rowData, rowIndex) {
-
-														if (rowData.state == 'open') {
-															return '<a href="#">创建表</a>';
-														}
-
-														return '<a href="#"> 编辑</a>|<a href="#"> 删除</a>';
-
-													},
-													width : 60,
-													align : 'right'
-												}, {
-													field : 'obj_comment',
-													title : '描述',
-													width : 160,
-													align : 'right'
-												} ] ]
-									});
+					 $('<canvas id=\"canvasx\" width=\"100\" height=\"100\"  class=\"line\"></canvas>').appendTo($( "#xx" ));
+					 $( "#canvas" ).draggable();
 				});
+				window.onload=function(){
+					var canvas=document.getElementById("canvas");
+	
+					var context=canvas.getContext("2d");
+					
+					context.moveTo(0,0);
+	
+					context.lineTo(200,200);
+	 
+					context.lineWidth=1	;
+					context.strokeStyle="#f90";
+					context.stroke()
+				
+				}
+				
+				
+				
+				
 			</script>
 </head>
-<body class="easyui-layout">
-
-	<div region="west" split="true" style="width: 20%; border: 0px;">
-		<table id="class-struct" fit="true" border="0"></table>
-	</div>
-	<div region="center" split="true" style="width: 80%; border: 0px;">
-		<div style="left: 492px; top: 219px; z-index: 20;"
-			id="B0887C4B-4D1E-1417-5AFC-2DFD99B8D713"
-			class="gradient_node component window " flowid="32" labeltitle=""
-			stepSeq="1" parentid="CE6BBE65-DB5A-0379-CC70-BF45337D7029">
-			<div>
-				<p class="p_title" title="xxxxxx">xxxx</p>
-				<a class="flow_left_padding hide"><span class="view" title="查看"
-					onclick="OpenFlowDetail(this)">&nbsp;</span><span class="delete"
-					title="删除"
-					onclick="DragFlow.DeleteItems('B0887C4B-4D1E-1417-5AFC-2DFD99B8D713')">&nbsp;</span></a>
-			</div>
-			<div class="ep" title="拖动连线"></div>
-		</div>
-
-	</div>
+<body  id="root">
+<canvas id="canvas" width="200" height="200"  class="line"></canvas>
+	 <div id="xx" style="border:1px solid #ccc;width:300px;height:300px"></div>
+	 
 
 </body>
 </html>

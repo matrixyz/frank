@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
+ 
 	<title>like a man</title>
 <style type="text/css">
 html, body {
@@ -43,7 +43,7 @@ html, body {
 	top: 250px;
 }
 </style>
-<script type="text/javascript" src="/js/easyui/jquery.min.js"></script>
+<script type="text/javascript" src="/js/easyui/jquery.min.js"/>
 <script type="text/javascript" src="/js/jsplumb/jsPlumb-2.1.5.js"></script>
 
 

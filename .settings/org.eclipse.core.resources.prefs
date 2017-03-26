@@ -1,9 +1,12 @@
 eclipse.preferences.version=1
+encoding//src/main/webapp/agile-field-select-business.json=UTF-8
 encoding//src/main/webapp/datagrid_data.json=UTF-8
 encoding//src/main/webapp/file-tree.json=UTF-8
 encoding//src/main/webapp/index.jsp=UTF-8
 encoding//src/main/webapp/property-grid.json=UTF-8
 encoding//src/main/webapp/test.json=UTF-8
 encoding//src/main/webapp/web/code-editor.jsp=UTF-8
+encoding//src/main/webapp/web/cons/table_column_datatype.json=UTF-8
+encoding//src/main/webapp/web/efficient_query_industry_navi.json=UTF-8
 encoding//src/main/webapp/web/mgr-model.jsp=UTF-8
 encoding/<project>=UTF-8

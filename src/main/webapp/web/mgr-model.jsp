@@ -8,7 +8,7 @@
 		<%@ include file="mgr-model-class.js"%>
 		
 		window.onload = function() {
-
+			 $("#agile_field_select").dialog('close');
 		};
 	});
 </script>
@@ -89,8 +89,11 @@
 
 	</div>
 	
-		<!-- 字段选择器开始 -->
-		<%@ include file="agile-field-select.jsp" %>
-		<!-- 字段选择器开始 -->
+		 
+	 <!-- 字段选择器开始 -->
+	<div id="agile_field_select" class="easyui-window" title="域选择" style=" width:800px;height:500px;">
+		 <iframe    src="agile-field-select.jsp" style="width:100%;height:100%;border:0px;"  ></iframe>
+	</div>
+ 	<!-- 字段选择器结束-->
 </body>
 </html>

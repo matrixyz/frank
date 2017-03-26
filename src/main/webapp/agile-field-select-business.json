@@ -1,0 +1,22 @@
+[{
+            "itemid":25,
+            "productid":"登录相关",
+            "listprice":"int" 
+        },
+        {
+            "itemid":26,
+            "productid":"权限控制",
+            "listprice":"int" 
+        
+        },
+        {
+            "itemid":26,
+            "productid":"用户注册",
+            "listprice":"int" 
+         
+        },
+        {
+            "itemid":26,
+            "productid":"电商商品",
+            "listprice":"int" 
+        } ]

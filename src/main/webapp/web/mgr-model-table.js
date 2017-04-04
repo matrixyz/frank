@@ -30,11 +30,14 @@
 					/* 表管理开始 */
 					
 					
-					/* 表字段显示的datagrid的数据操作和绑定 */
+					/* 表字段显示的datagrid的数据操作和绑定  开始*/
 					var editRow = undefined;
 					var editRow_table = undefined;
-					
-					var fieldType = [{ "value": "int", "text": "int" }, { "value": "double", "text": "double" }, { "value": "nvarchar", "text": "nvarchar" }];
+					var field_name=undefined;
+					var fieldType = [{ "value": "int", "text": "int" },
+					                 { "value": "double", "text": "double" }, 
+					                 { "value": "nvarchar", "text": "nvarchar" }
+					                 ];
  					var datagrid_table=$("#table_column_dg");// 表字段的描述
  					datagrid_table.datagrid({
 						
@@ -44,7 +47,12 @@
 						url:'/datagrid_data.json',
 						columns:[[
 							{field:'itemid',title:'字段索引',width:60},
-							{field:'productid',title:'字段名称',width:100,editor:{type:'validatebox',options: {required: true,missingMessage:'请输入字段名称'}}},
+							{field:'productid',title:'字段名称',width:100,editor:
+								{type:'validatebox',options:
+									{required: true,missingMessage:'请输入字段名称'}
+								}
+							
+							},
 							{field:'listprice',title:'类型',width:80,align:'right',editor: { type: 'combobox', options: { data: fieldType, valueField: "value", textField: "text" } }},
 							{field:'unitcost',title:'默认值',width:80,align:'right',editor:{type:'validatebox',options: {required: true,missingMessage:'请输入默认值'}} },
 							{field:'attr1',title:'允许空1',width:50, 
@@ -70,20 +78,20 @@
 				            	datagrid_table.datagrid('beginEdit', rowIndex);				
 				                editRow_table = rowIndex;				
 				                console.log(rowData);
-				                
-				                var ed = $(this).datagrid('getEditor', {index:rowIndex,field:'productid'});
-				                var p=$(ed.target).closest('td[field]');//编辑器容器
-				                //p.html('<div id="p" class="easyui-panel"  style="width:500px;height:150px;padding:10px;background:#fafafa;" >  </div>');//删除原来的编辑器
-				                      
-				                $("#agile_field_select").dialog('open');		
-				                
-				                
+				                if(field_name=='productid'){ 
+						           $("#agile_field_select").dialog('open');	
+				                } 
+				             
 				                
 				            }			 
-				        },				
-				        onClickRow: function (rowIndex, rowData) {				
+				        },	
+				        onClickCell: function(rowIndex, field, value){
+				        	field_name=field;
+				        },
+				        onClickRow: function (rowIndex, rowData) {	
+				        	 
 				            if (editRow_table != undefined) {				
-				            	datagrid_table.datagrid('endEdit', editRow_table);
+				             datagrid_table.datagrid('endEdit', editRow_table);
 							}				
 				        },
 				        toolbar: [{ text: '添加', iconCls: 'icon-add', handler: function () {// 添加列表的操作按钮添加，修改，删除等
@@ -120,6 +128,8 @@
 					                                     ids.push(rows[i].ID);
 					                                 }
 					                                 // 将选择到的行存入数组并用,分隔转换成字符串，
+					                                 var index = datagrid_table.datagrid("getRowIndex", rows[0]);
+					                                 datagrid_table.datagrid("deleteRow", index );
 					                                 // 本例只是前台操作没有与数据库进行交互所以此处只是弹出要传入后台的id
 					                                 alert(ids.join(','));
 					                             }
@@ -165,14 +175,42 @@
 					                 }, '-',
 					                 { text: '取消编辑', iconCls: 'icon-redo', handler: function () {
 					                     // 取消当前编辑行把当前编辑行罢undefined回滚改变的数据,取消选择的行
-					                     editRow_table = undefined;
+					                      editRow_table = undefined;
 					                     datagrid_table.datagrid("rejeadfctChanges");
-					                     datagrid_table.datagrid("unselectAll");
+					                     datagrid_table.datagrid("unselectAll"); 
+					                	 
+					                	 
+					                	 
 					                 }
 					                 }, '-']
 					});
-					
-				    $('#mgr_table').treegrid({
+ 					//提供给其他窗体调用设置选中单元格的值
+ 					parentFn.setEditRowValue=function(values){
+ 						var editor_table=$("#table_column_dg");
+ 						if(field_name=='productid'){
+ 							 var rows=editor_table.datagrid("getSelections");//获取行对象
+ 							 var rowIndex = editor_table.datagrid("getRowIndex", rows[0]);//获取编辑的行索引
+ 							 //获取要设置值的列的编辑器，准备进行编辑
+		                	 var ed = editor_table.datagrid('getEditor', {index:rowIndex,field:'productid'});
+				             var ed1 = editor_table.datagrid('getEditor', {index:rowIndex,field:'action'});
+				             
+				             ed.target.val( values)  ;
+				             ed1.target.val(  "ddddxxx")  ;
+				             //$("#agile_field_select").dialog('open');	
+		                }
+ 					}
+ 					/* 表字段显示的datagrid的数据操作和绑定   结束*/
+ 					
+ 					
+ 					
+ 					
+ 					
+ 					
+ 					
+					//****************************************************************************
+ 					//左边对项目中的全部表进行管理的datagrid 开始			
+ 					//项目表
+				    $('#mgr_tables').treegrid({
 				        url:'/test.json',
 				        idField:'id',
 				        treeField:'db_nam',
@@ -267,7 +305,10 @@
 				    	 $('#agile_field_select').dialog('maximize');	 
 				    }
 				    
-				    
+				    parentFn.close_agile_field_select=function(){
+				    	  
+				    	 $('#agile_field_select').dialog('close');	 
+				    }
 				    
 				    /* 域选择器窗口最大最小化控制结束 */
 				    

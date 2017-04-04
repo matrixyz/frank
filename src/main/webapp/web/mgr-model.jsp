@@ -46,7 +46,7 @@
 		<div title="表管理" style="padding: 10px;" data-options="selected:true">
 			<div class="easyui-layout" data-options="fit:true">
 				<div region="west" style="width: 50%;">
-					<table title="项目表" id="mgr_table" fit="true" border="0"></table>
+					<table title="项目表" id="mgr_tables" fit="true" border="0"></table>
 				</div>
 				<div region="center" style="padding-left: 5px; border: 0px;">
 

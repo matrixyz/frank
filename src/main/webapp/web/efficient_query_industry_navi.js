@@ -1,5 +1,5 @@
 <%@page pageEncoding="UTF-8"%>
-
+ 
 $('#efficient_query_industry_navi_table').treegrid({
     url:'/web/efficient_query_industry_navi.json',
     idField:'id',
@@ -14,10 +14,10 @@ $('#efficient_query_industry_navi_table').treegrid({
         formatter:function(value,rowData,rowIndex){
         	
         	if(rowData.state=='open'){
-        		return '<a href="#">创建表</a>';
+        		//return '<a href="#">创建表</a>';
         	}
-        	
-        	return '<a href="#"> 编辑</a>|<a href="#"> 删除</a>';
+        	 
+        	return '<a href="#" onclick="useThisField(\''+rowData.obj_nam+'\')">使用</a> ';
         
         },width:60,align:'right'},
         {field:'obj_comment',title:'描述', align:'right'}

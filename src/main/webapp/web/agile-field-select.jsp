@@ -1,7 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8" contentType="text/html; charset=utf-8"%>
 <%@ include file="../sys-top.jsp"%>
 <script type="text/javascript">
-	parentFn.allTitle = new Array();//用来存储所有选项卡的标题
+	 
 	$(function() {
 		<%@ include file="agile-field-select.js"%>
 		 
@@ -9,6 +9,8 @@
 		window.onload = function() {
 			$("#efficient_query_industry_navi").dialog('close');
 		};
+		 
+		
 	});
 </script>
 	 
@@ -36,9 +38,9 @@ pageSize:10,pageList:[10]">
 		<div id="table_agile_field_select_toolbar" style="padding:5px;height:auto"> 
 			<div> 
 			最近查询: <input id="efficient_query_cbxgrid_history"   value="01">
-			行业分类查询: <input id="efficient_query_cbxgrid_industry"  class="easyui-textbox" value="01">
-			<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'">直接查询</a> 
+			行业分类查询: <input id="efficient_query_cbxgrid_industry"  >
 			<a id="efficient_query_btn_industry" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'">导航查询</a> 
+			  
 			</div>
 			<div> 
 			库表字段查询: <input id="efficient_query_cbxgrid_relation"   value="01">

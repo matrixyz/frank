@@ -169,7 +169,34 @@
 					                     datagrid_table.datagrid("endEdit", editRow_table);
 					                     var arr=$("#table_struct").propertygrid("getData");
 					                     var value=arr.rows[0].value; 
-					                     alert(value);
+					                     var rows =  datagrid_table.datagrid("getRows");
+					                     console.log(rows[0]); //  2pm
+					                     console.log(rows) ; //  2pm
+					                    
+					                     $.ajax({
+					                         type: "post",
+					                         url: "../coretablecolumn/aa",
+					                         data: JSON.stringify(rows),
+					                         dataType: 'json',
+					                         contentType: 'application/json;charset=utf-8',
+					                         success: function (data) {
+					                                 
+					                         },
+					                         error: function (XMLHttpRequest, textStatus, errorThrown) {
+					                 			alert(errorThrown);
+					                         }
+					                     });
+					                     
+					                     
+					                     
+					                     
+					                     
+					                     
+					                     
+					                     
+					                     
+					                     
+					                     
 					                     
 					                 }
 					                 }, '-',

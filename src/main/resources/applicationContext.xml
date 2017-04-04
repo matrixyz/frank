@@ -83,6 +83,16 @@
 		</mvc:interceptor>
 		<!-- 当设置多个拦截器时，先按顺序调用preHandle方法，然后逆序调用每个拦截器的postHandle和afterCompletion方法 -->
 	</mvc:interceptors>
+	<!-- 默认的注解映射的支持 -->  
+	<mvc:annotation-driven />  
+	
+ 
+	
+	
+	
+	
+	
+	
 	<bean
 		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="messageConverters">

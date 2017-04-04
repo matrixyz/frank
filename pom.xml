@@ -65,7 +65,11 @@
 			<version>4.1.6.RELEASE</version>
 			<type>jar</type>
 		</dependency>
-
+     	<dependency>  
+            <groupId>com.fasterxml.jackson.core</groupId>  
+            <artifactId>jackson-databind</artifactId>  
+            <version>2.5.3</version>  
+        </dependency>  
 
 
 		<!-- 连接MySQL数据库需要的jar包 -->

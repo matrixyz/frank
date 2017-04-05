@@ -1,5 +1,9 @@
 package com.binli.agiledev.dao.model;
-
+/**
+ * 纯属例子，业务成熟后要删除的内容
+ * @author lenovo
+ *
+ */
 public class TableColumn {
 	private int itemid;
 	private String productid;

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
 <generatorConfiguration >
-  <classPathEntry location="E:\workspace\springMvcMybatisShop\WebRoot\WEB-INF\lib\mysql-connector-java-5.1.39-bin.jar" ></classPathEntry>
+  <classPathEntry location="C:\Users\lenovo\.m2\repository\mysql\mysql-connector-java\5.1.38\mysql-connector-java-5.1.38.jar" ></classPathEntry>
   <context id="context1" >
-    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/agile?useUnicode=true&amp;characterEncoding=UTF8" userId="root" password="000000" />
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/agile?useUnicode=true&amp;characterEncoding=UTF8" userId="root" password="000" />
      <javaTypeResolver>  
             <property name="forceBigDecimals" value="false"/>  
         </javaTypeResolver>  
@@ -20,7 +20,8 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.binli.agiledev.dao.mapper" targetProject="testa\src\main\java">  
             <property name="enableSubPackages" value="true"/>  
         </javaClientGenerator>  
-    <table   tableName="user" 
+     
+    <table   tableName="t_core_table" 
     enableCountByExample="false" enableUpdateByExample="false"
      enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>  
   </context>

@@ -65,12 +65,13 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `t_core_industry`;
 CREATE TABLE `t_core_industry` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) NOT NULL DEFAULT '-1' COMMENT '父代信息，pid=-1代表本身是顶级分类',
   `name` varchar(255) NOT NULL DEFAULT '' COMMENT '行业名称',
   `query_count` int(11) NOT NULL DEFAULT '0' COMMENT '被查询次数',
   `use_count` int(11) NOT NULL DEFAULT '0' COMMENT '被使用次数',
   `comment` varchar(255) DEFAULT NULL COMMENT '说明备注',
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='行业分类';
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='行业分类';
 
 #
 # Dumping data for table t_core_industry
@@ -78,6 +79,7 @@ CREATE TABLE `t_core_industry` (
 
 LOCK TABLES `t_core_industry` WRITE;
 /*!40000 ALTER TABLE `t_core_industry` DISABLE KEYS */;
+INSERT INTO `t_core_industry` VALUES (1,-1,'金融业',0,0,'金融行业，包括银行，保险，证券，贵金属，期货等各种衍生品');
 /*!40000 ALTER TABLE `t_core_industry` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -102,6 +104,26 @@ CREATE TABLE `t_core_table` (
 LOCK TABLES `t_core_table` WRITE;
 /*!40000 ALTER TABLE `t_core_table` DISABLE KEYS */;
 /*!40000 ALTER TABLE `t_core_table` ENABLE KEYS */;
+UNLOCK TABLES;
+
+#
+# Source for table t_core_tablekey
+#
+
+DROP TABLE IF EXISTS `t_core_tablekey`;
+CREATE TABLE `t_core_tablekey` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `table_name` varchar(100) NOT NULL DEFAULT '' COMMENT '表名称',
+  PRIMARY KEY (`Id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='系统中所有表对应的整型编号ID';
+
+#
+# Dumping data for table t_core_tablekey
+#
+
+LOCK TABLES `t_core_tablekey` WRITE;
+/*!40000 ALTER TABLE `t_core_tablekey` DISABLE KEYS */;
+/*!40000 ALTER TABLE `t_core_tablekey` ENABLE KEYS */;
 UNLOCK TABLES;
 
 #

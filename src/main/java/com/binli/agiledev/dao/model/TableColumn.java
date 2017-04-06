@@ -5,8 +5,6 @@ package com.binli.agiledev.dao.model;
  *
  */
 public class TableColumn {
-	private int itemid;
-	private String productid;
 	public int getItemid() {
 		return itemid;
 	}
@@ -44,6 +42,8 @@ public class TableColumn {
 		this.status = status;
 	}
 	private String listprice;
+	private int itemid;
+	private String productid;
 	private String unitcost;
 	private String attr1;
 	private String status;

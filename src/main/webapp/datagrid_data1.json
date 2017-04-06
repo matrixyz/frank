@@ -1,0 +1,27 @@
+[{
+            "colId":23,
+            "colName":"11",
+            "colType":"int",
+            "colDefault":"user",
+            "colNull":1,
+            
+            "comment":"这是注释"
+        },
+                {
+          "colId":25,
+            "colName":"11",
+            "colType":"int",
+            "colDefault":"user",
+            "colNull":1,
+            
+            "comment":"这是注释"
+        },
+                {
+            "colId":26,
+            "colName":"11",
+            "colType":"int",
+            "colDefault":"user",
+            "colNull":1,
+            
+            "comment":"这是注释"
+        }]

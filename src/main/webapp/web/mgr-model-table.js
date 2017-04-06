@@ -44,25 +44,25 @@
 						
 						singleSelect:true,
 						idField:'itemid',
-						url:'/datagrid_data.json',
+						url:'/datagrid_data1.json',
 						columns:[[
-							{field:'itemid',title:'字段索引',width:60},
-							{field:'productid',title:'字段名称',width:100,editor:
+							{field:'colId',title:'字段索引',width:60},
+							{field:'colName',title:'字段名称',width:100,editor:
 								{type:'validatebox',options:
 									{required: true,missingMessage:'请输入字段名称'}
 								}
 							
 							},
-							{field:'listprice',title:'类型',width:80,align:'right',editor: { type: 'combobox', options: { data: fieldType, valueField: "value", textField: "text" } }},
-							{field:'unitcost',title:'默认值',width:80,align:'right',editor:{type:'validatebox',options: {required: true,missingMessage:'请输入默认值'}} },
-							{field:'attr1',title:'允许空1',width:50, 
+							{field:'colType',title:'类型',width:80,align:'right',editor: { type: 'combobox', options: { data: fieldType, valueField: "value", textField: "text" } }},
+							{field:'colDefault',title:'默认值',width:80,align:'right',editor:{type:'validatebox',options: {required: true,missingMessage:'请输入默认值'}} },
+							{field:'colNull',title:'允许空1',width:50, 
 								formatter:function (value, row, index) {
 							 
 									var s = '<input name="isShow" type="checkbox" onclick="clk()"/> '; 
 				                    return s;  
 			                	}
 							},
-							{field:'action',title:'描述', align:'center',editor:{type:'validatebox',options: {required: true,missingMessage:'请输入题目'}} }
+							{field:'comment',title:'描述', align:'center',editor:{type:'validatebox',options: {required: true,missingMessage:'请输入题目'}} }
 						]],
 						onAfterEdit: function (rowIndex, rowData, changes) {
 				            editRow_table = undefined;			

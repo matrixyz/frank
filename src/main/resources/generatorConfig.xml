@@ -21,7 +21,7 @@
             <property name="enableSubPackages" value="true"/>  
         </javaClientGenerator>  
      
-    <table   tableName="t_core_table" 
+    <table   tableName="t_core_column" 
     enableCountByExample="false" enableUpdateByExample="false"
      enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>  
   </context>

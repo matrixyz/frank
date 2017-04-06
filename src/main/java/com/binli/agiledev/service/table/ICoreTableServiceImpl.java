@@ -8,7 +8,7 @@ import com.binli.agiledev.dao.mapper.TCoreTableMapper;
 import com.binli.agiledev.dao.model.TCoreColumn;
 import com.binli.agiledev.model.vo.TCoreTableExt;
 
-@Service("iCoreTableService") 
+@Service("iCoreTableService") //这个参数要和对应的 消费者 controller 的autowared  组件的 变量名一致
 public class ICoreTableServiceImpl implements ICoreTableService {
 	@Autowired
 	private TCoreTableMapper tCoreTableMapper;

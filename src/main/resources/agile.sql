@@ -23,11 +23,14 @@ CREATE TABLE `t_core_column` (
   `col_id` int(11) NOT NULL AUTO_INCREMENT,
   `col_name` varchar(100) NOT NULL DEFAULT '' COMMENT '列名称',
   `col_type` varchar(20) NOT NULL DEFAULT '' COMMENT '列数据类型',
-  `tab_id` varchar(30) DEFAULT NULL COMMENT '表id',
+  `col_index` int(11) DEFAULT NULL COMMENT '字段在表中的排列顺序',
+  `col_default` varchar(255) DEFAULT '' COMMENT '字段默认值',
+  `col_null` bit(1) DEFAULT b'0' COMMENT '是否允许字段为空值，默认为0允许',
+  `tab_id` int(11) DEFAULT NULL COMMENT '表id',
   `comment` varchar(255) DEFAULT NULL COMMENT '列注释',
   `cre_tim` datetime DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`col_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='字段数据记录';
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='字段数据记录';
 
 #
 # Dumping data for table t_core_column
@@ -35,6 +38,12 @@ CREATE TABLE `t_core_column` (
 
 LOCK TABLES `t_core_column` WRITE;
 /*!40000 ALTER TABLE `t_core_column` DISABLE KEYS */;
+INSERT INTO `t_core_column` VALUES (1,'pwd','double',NULL,'阿斯蒂芬',b'1',2,'这是注释','2017-04-06 21:49:18');
+INSERT INTO `t_core_column` VALUES (2,'name','int',NULL,'user',b'1',2,'这是注释','2017-04-06 21:49:18');
+INSERT INTO `t_core_column` VALUES (3,'test','int',NULL,'user',b'1',2,'这是注释','2017-04-06 21:49:18');
+INSERT INTO `t_core_column` VALUES (4,'pwd','double',NULL,'阿斯蒂芬',b'1',3,'这是注释','2017-04-06 21:49:53');
+INSERT INTO `t_core_column` VALUES (5,'name','int',NULL,'user',b'1',3,'这是注释','2017-04-06 21:49:53');
+INSERT INTO `t_core_column` VALUES (6,'test','int',NULL,'user',b'1',3,'这是注释','2017-04-06 21:49:53');
 /*!40000 ALTER TABLE `t_core_column` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -95,7 +104,7 @@ CREATE TABLE `t_core_table` (
   `comment` varchar(255) DEFAULT NULL COMMENT '表注释',
   `cre_tim` datetime DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`tab_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='表数据记录';
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='表数据记录';
 
 #
 # Dumping data for table t_core_table
@@ -103,6 +112,9 @@ CREATE TABLE `t_core_table` (
 
 LOCK TABLES `t_core_table` WRITE;
 /*!40000 ALTER TABLE `t_core_table` DISABLE KEYS */;
+INSERT INTO `t_core_table` VALUES (1,'users','1','注释','2017-04-06 21:41:46');
+INSERT INTO `t_core_table` VALUES (2,'users','1','注释','2017-04-06 21:49:18');
+INSERT INTO `t_core_table` VALUES (3,'users','1','注释','2017-04-06 21:49:53');
 /*!40000 ALTER TABLE `t_core_table` ENABLE KEYS */;
 UNLOCK TABLES;
 

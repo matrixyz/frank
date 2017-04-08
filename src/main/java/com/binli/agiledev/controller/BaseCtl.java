@@ -1,7 +1,6 @@
 package com.binli.agiledev.controller;
 
 import java.io.IOException;
- 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -16,18 +15,12 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
- 
- 
-
- 
-
-
-import com.binli.agiledev.util.JSONUtils;
 
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.binli.agiledev.util.JSONUtils;
 
  
 

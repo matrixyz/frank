@@ -17,8 +17,14 @@ html, body {
 }
 .line{
 position:absolute;
-left:0px;
-top:100px;
+left:500px;
+top:500px;
+ width:200px;
+ height:200px;
+border:1px solid #f90;
+}
+.linex{
+ 
  
 border:1px solid #f90;
 }
@@ -31,42 +37,101 @@ border:1px solid #f90;
 
 			<script type="text/javascript">
 				var parentFn = new Object();
-				parentFn.allTitle = new Array();//用来存储所有选项卡的标题
-				function MathRand() {//该函数为了防止IE缓存页面，造成 datagrid 刷新无反应
-					var Num = "";
-					for (var i = 0; i < 8; i++) {
-						Num += Math.floor(Math.random() * 10);
-					}
-					return Num;
-				}
+				 
 
 				$(function() {
-					 $('<canvas id=\"canvasx\" width=\"100\" height=\"100\"  class=\"line\"></canvas>').appendTo($( "#xx" ));
-					 $( "#canvas" ).draggable();
+					 //$('<canvas id=\"canvasx\" width=\"100\" height=\"100\"  class=\"line\"></canvas>').appendTo($( "#xx" ));
+					  $( "#canvas" ).draggable();
+					 
+					 
+					/*  $("#canvas").on({
+						    mousedown: function(e){
+						                var el=$(this);
+						                var os = el.offset(); 
+						                dx = e.pageX-os.left;
+						                dy = e.pageY-os.top;
+						                $(document).on('mousemove.drag', function(e){ 
+						                	el.offset({top: e.pageY-dy, left: e.pageX-dx});  
+						                	$( "#position" ).html(dx+"-"+dy);
+						                });
+						               
+						            },
+						 
+						   mouseup: function(e){ $(document).off('mousemove.drag'); }}); */
+					 
+					 $('<canvas id=\"canvasx\" width=\"200\" height=\"200\"  ></canvas>').appendTo($( "#xx" ));
+							 
+					 $('#canvas').mousemove(function(e){  
+						 
+						 var x = $('#canvas').offset().left;
+
+						 var y = $('#canvas').offset().top;
+						 
+					 
+						   var leftxx_right_top_x=300;
+						 var leftxx_right_top_y= 300;  
+						 
+						 
+						 
+						 var xx_width=x-leftxx_right_top_x;
+						 var xx_height=y-leftxx_right_top_y; 
+						 
+						 $('#xx').css("top",leftxx_right_top_y );
+						  $('#xx').css("left",leftxx_right_top_x);
+						  $('#xx').css("width", xx_width);
+						  $('#xx').css("height", xx_height);
+						 
+						 
+						  parentFn.drawLines(xx_width,xx_height);
+						 
+					  });  
+					 
+					 
+					 
+					 
+					 
+					 
+					 
+					 
+					 
+					 
+					 
 				});
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 				window.onload=function(){
-					var canvas=document.getElementById("canvas");
-	
-					var context=canvas.getContext("2d");
+					 
 					
-					context.moveTo(0,0);
-	
-					context.lineTo(200,200);
-	 
-					context.lineWidth=1	;
-					context.strokeStyle="#f90";
-					context.stroke()
-					var canvas=document.getElementById("canvasx");
-	
-					var context=canvas.getContext("2d");
 					
-					context.moveTo(0,0);
+					 var canvasx=document.getElementById("canvasx");
 	
-					context.lineTo(100,100);
-	 
-					context.lineWidth=2	;
-					context.strokeStyle="#c3c3c3";
-					context.stroke()
+					var contextx=canvasx.getContext("2d");
+					 
+					
+					parentFn.drawLines=function(x,y){
+						  
+						  canvasx.width=x;
+						  canvasx.height=y;
+						contextx.moveTo(0,0); 
+						contextx.lineTo(x,y);
+		 
+						contextx.lineWidth=1	;
+						contextx.strokeStyle="#f90";
+						contextx.stroke()  ;
+					}
+					
+					
+					
+					
+					
 				
 				}
 				
@@ -76,8 +141,9 @@ border:1px solid #f90;
 			</script>
 </head>
 <body  id="root">
-<canvas id="canvas" width="200" height="200"  class="line"></canvas>
-	 <div id="xx" style="border:1px solid #ccc;width:300px;height:300px"></div>
+<div id="canvas"    class="line"></div>
+	 <div id="xx" style="border:1px solid #ccc;width:200px;height:200px;top:300px;left:300px;position:absolute"> </div>
+	 <div id="leftxx" style="border:1px solid #ccc;width:300px;height:300px">leftxx</div>
 	 
 
 </body>

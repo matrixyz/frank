@@ -1,7 +1,5 @@
 package com.binli.agiledev.controller;
-import static org.junit.Assert.*;
-
-import java.sql.SQLException;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;

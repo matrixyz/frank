@@ -6,7 +6,6 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Param;
 
 import com.binli.agiledev.dao.model.User;
- 
 import com.binli.agiledev.util.PageBean;
 
 public interface UserMapper {

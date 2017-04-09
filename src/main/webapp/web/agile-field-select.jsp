@@ -52,6 +52,7 @@ pageSize:10,pageList:[10]">
 			  
 			时间查询: <input id="efficient_query_cbxgrid_time"   value="01">
 			数据类型分类查询: <input id="efficient_query_cbxgrid_datatype"   value="01">
+			组件分类查询: <input id="efficient_query_cbxgrid_component"   value="01">
 			</div> 
 		</div>			
 		<!-- 工具栏结束-->

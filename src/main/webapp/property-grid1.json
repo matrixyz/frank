@@ -13,11 +13,20 @@
 	{"name":"创建日期","value":"2016-09-09","group":"基本信息","editor":"datebox"},
 	{"name":"备注", "group":"基本信息","editor":"text"},
 	 
-	{"name":"FrequentBuyer","value":"false","group":"索引","editor":{
-		"type":"checkbox",
-		"options":{
-			"on":true,
-			"off":false
+	{"name":"所属行业","value":"false","group":"索引","editor":{
+		"type":"combobox",
+		"options":{ "data": 
+		[	{"value":"金融", "text": "金融" },
+			{ "value":"医疗", "text": "医疗"},
+			{ "value":"保险", "text": "保险"}], "panelHeight": "auto"
+		}
+	}},
+	{"name":"所属业务","value":"false","group":"索引","editor":{
+		"type":"combobox",
+		"options":{ "data": 
+		[	{"value":"会员管理", "text": "会员管理" },
+			{ "value":"用户注册", "text": "用户注册"},
+			{ "value":"用户权限", "text": "用户权限"}], "panelHeight": "auto"
 		}
 	}}
 ]

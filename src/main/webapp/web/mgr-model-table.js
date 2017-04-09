@@ -78,7 +78,7 @@
 				            	datagrid_table.datagrid('beginEdit', rowIndex);				
 				                editRow_table = rowIndex;				
 				                console.log(rowData);
-				                if(field_name=='productid'){ 
+				                if(field_name=='colName'){ 
 						           $("#agile_field_select").dialog('open');	
 				                } 
 				             
@@ -170,13 +170,27 @@
 					                     var arr=$("#table_struct").propertygrid("getData");
 					                     var value=arr.rows[0].value; 
 					                     var rows =  datagrid_table.datagrid("getRows");
-					                     console.log(rows[0]); //  2pm
-					                     console.log(rows) ; //  2pm
+					                     
+					                     var newObject = jQuery.extend(true, {}, arr.rows); 
+					                     $.each(newObject,function(i,res){
+					                    	 delete newObject[i]['editor'];
+					                         console.log( newObject[i]);
+					                     });
+					                     
+					                     
+					                     var param={"tableinf":newObject,"columninf":rows};
+					                     
+					                     
+					                     
+					                     
+					                     
+					                     console.log(arr); //  2pm
+					                     //console.log(rows) ; //  2pm
 					                    
 					                     $.ajax({
 					                         type: "post",
 					                         url: "../coretablecolumn/aa",
-					                         data: JSON.stringify(rows),
+					                         data: JSON.stringify(param),
 					                         dataType: 'json',
 					                         contentType: 'application/json;charset=utf-8',
 					                         success: function (data) {

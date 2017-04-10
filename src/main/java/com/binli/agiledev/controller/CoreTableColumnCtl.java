@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.binli.agiledev.dao.model.TCoreColumn;
+import com.binli.agiledev.model.vo.TCoreTableExt;
 import com.binli.agiledev.service.table.ICoreTableService;
  
 @Scope("prototype")//保证该类多例
@@ -25,7 +26,7 @@ public class CoreTableColumnCtl extends BaseCtl{
 	
 	@ResponseBody
 	@RequestMapping("/aa")
-	public String aa(@RequestBody List<TCoreColumn> requestBody) { 
+	public String aa(@RequestBody TCoreTableExt tCoreTableExt) { 
 		
 		/*TCoreTableExt tCoreTableExt=new TCoreTableExt();
 		tCoreTableExt.setComment("注释");
@@ -39,7 +40,7 @@ public class CoreTableColumnCtl extends BaseCtl{
 		
 		
 		System.out.println(iCoreTableService);
-		System.out.println(requestBody.size());
+		System.out.println(tCoreTableExt);
 		
 		return null;
 	}

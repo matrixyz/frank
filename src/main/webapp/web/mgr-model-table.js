@@ -18,6 +18,11 @@
 									field : 'value',
 									title : 'Value',
 									width : 200
+								},
+								{
+									field : 'fieldName',
+									title : '别名',
+									width : 50
 								} ] ],
 						showGroup : true,
 						scrollbarSize : 0
@@ -176,10 +181,16 @@
 					                    	 delete newObject[i]['editor'];
 					                         console.log( newObject[i]);
 					                     });
+					                     var tab=newObject;
 					                     
+					                     var param={
+					                    		 "tabName":tab[0].value,
+					                    		 "tabType":tab[0].value,
+					                    		 "tabType":tab[0].value,
+					                    		 "tabName":tab[0].value,
 					                     
-					                     var param={"tableinf":newObject,"columninf":rows};
-					                     
+					                    		 "tCoreColumn":rows 
+					                     };
 					                     
 					                     
 					                     

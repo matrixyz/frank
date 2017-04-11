@@ -11,7 +11,7 @@
 		}
 	}},
 	{"name":"创建日期","value":"2016-09-09","fieldName":"creTim","group":"基本信息","editor":"datebox"},
-	{"name":"备注", "group":"基本信息","editor":"text"},
+	{"name":"备注", "group":"基本信息","fieldName":"comment","editor":"text"},
 	 
 	{"name":"所属行业","value":"false","fieldName":"industry","group":"索引","editor":{
 		"type":"combobox",

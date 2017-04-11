@@ -33,10 +33,10 @@ public class CoreTableColumnCtl extends BaseCtl{
 		tCoreTableExt.setCreTim(new Date());
 		tCoreTableExt.setDbId("1");
 		tCoreTableExt.setTabName("users");
-		tCoreTableExt.settCoreColumn(requestBody );
+		tCoreTableExt.settCoreColumn(requestBody );*/
 		
 		
-		iCoreTableService.add(tCoreTableExt);*/
+		iCoreTableService.add(tCoreTableExt);
 		
 		
 		System.out.println(iCoreTableService);

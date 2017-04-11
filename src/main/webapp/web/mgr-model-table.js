@@ -185,9 +185,10 @@
 					                     
 					                     var param={
 					                    		 "tabName":tab[0].value,
-					                    		 "tabType":tab[0].value,
-					                    		 "tabType":tab[0].value,
-					                    		 "tabName":tab[0].value,
+					                    		 "tabType":tab[1].value,
+					                    		 "charset":tab[2].value,
+					                    		 "creTim":tab[3].value,
+					                    		 "comment":tab[4].value,
 					                     
 					                    		 "tCoreColumn":rows 
 					                     };

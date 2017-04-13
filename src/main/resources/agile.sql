@@ -55,6 +55,8 @@ DROP TABLE IF EXISTS `t_core_db`;
 CREATE TABLE `t_core_db` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL COMMENT '数据库名称',
+  `index_sort` int(11) DEFAULT NULL,
+  `comment` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`Id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='数据库信息表';
 
@@ -93,6 +95,28 @@ INSERT INTO `t_core_industry` VALUES (1,-1,'金融业',0,0,'金融行业，包�
 UNLOCK TABLES;
 
 #
+# Source for table t_core_project
+#
+
+DROP TABLE IF EXISTS `t_core_project`;
+CREATE TABLE `t_core_project` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `name` varchar(30) NOT NULL COMMENT '项目名称',
+  `index_sort` int(11) NOT NULL DEFAULT '0' COMMENT '排序',
+  `comment` varchar(300) DEFAULT NULL COMMENT '注释',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+#
+# Dumping data for table t_core_project
+#
+
+LOCK TABLES `t_core_project` WRITE;
+/*!40000 ALTER TABLE `t_core_project` DISABLE KEYS */;
+/*!40000 ALTER TABLE `t_core_project` ENABLE KEYS */;
+UNLOCK TABLES;
+
+#
 # Source for table t_core_table
 #
 
@@ -100,9 +124,11 @@ DROP TABLE IF EXISTS `t_core_table`;
 CREATE TABLE `t_core_table` (
   `tab_id` int(11) NOT NULL AUTO_INCREMENT,
   `tab_name` varchar(100) NOT NULL DEFAULT '' COMMENT '表名称',
-  `db_id` varchar(30) DEFAULT NULL COMMENT '数据库id',
+  `db_id` int(11) NOT NULL DEFAULT '0' COMMENT '数据库id',
   `comment` varchar(255) DEFAULT NULL COMMENT '表注释',
+  `charset` varchar(10) NOT NULL DEFAULT 'utf-8' COMMENT '表字符集格式',
   `cre_tim` datetime DEFAULT NULL COMMENT '创建时间',
+  `tab_type` varchar(10) DEFAULT 'InnoDB' COMMENT '表引擎类型',
   PRIMARY KEY (`tab_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='表数据记录';
 
@@ -112,9 +138,9 @@ CREATE TABLE `t_core_table` (
 
 LOCK TABLES `t_core_table` WRITE;
 /*!40000 ALTER TABLE `t_core_table` DISABLE KEYS */;
-INSERT INTO `t_core_table` VALUES (1,'users','1','注释','2017-04-06 21:41:46');
-INSERT INTO `t_core_table` VALUES (2,'users','1','注释','2017-04-06 21:49:18');
-INSERT INTO `t_core_table` VALUES (3,'users','1','注释','2017-04-06 21:49:53');
+INSERT INTO `t_core_table` VALUES (1,'users',1,'注释','utf-8','2017-04-06 21:41:46','InnoDB');
+INSERT INTO `t_core_table` VALUES (2,'users',1,'注释','utf-8','2017-04-06 21:49:18','InnoDB');
+INSERT INTO `t_core_table` VALUES (3,'users',1,'注释','utf-8','2017-04-06 21:49:53','InnoDB');
 /*!40000 ALTER TABLE `t_core_table` ENABLE KEYS */;
 UNLOCK TABLES;
 

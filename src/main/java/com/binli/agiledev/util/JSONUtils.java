@@ -31,6 +31,7 @@ public class JSONUtils
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json;charset=UTF-8");
 		PrintWriter pw = response.getWriter();
+		System.out.println(jsonStr);
 		pw.print(jsonStr);
 		pw.flush();
 		pw.close();

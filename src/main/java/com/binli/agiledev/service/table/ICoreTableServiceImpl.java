@@ -1,11 +1,15 @@
 package com.binli.agiledev.service.table;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.binli.agiledev.dao.mapper.TCoreColumnMapper;
+import com.binli.agiledev.dao.mapper.TCoreDbMapper;
 import com.binli.agiledev.dao.mapper.TCoreTableMapper;
 import com.binli.agiledev.dao.model.TCoreColumn;
+import com.binli.agiledev.model.vo.TCoreDbExt;
 import com.binli.agiledev.model.vo.TCoreTableExt;
 
 @Service("iCoreTableService") //这个参数要和对应的 消费者 controller 的autowared  组件的 变量名一致
@@ -14,6 +18,8 @@ public class ICoreTableServiceImpl implements ICoreTableService {
 	private TCoreTableMapper tCoreTableMapper;
 	@Autowired
 	private TCoreColumnMapper tCoreColumnMapper;
+	@Autowired
+	private TCoreDbMapper tCoreDbMapper;
 	@Override
 	public int add(TCoreTableExt tCoreTableExt) {
 		// TODO Auto-generated method stub
@@ -29,6 +35,13 @@ public class ICoreTableServiceImpl implements ICoreTableService {
 		
 		
 		return 1;
+	}
+	@Override
+	public List<TCoreDbExt> get() {
+		// TODO Auto-generated method stub
+		
+		 return tCoreDbMapper.selectList();
+		 
 	}
 
 }

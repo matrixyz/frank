@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.binli.agiledev.dao.model.TCoreColumn;
+import com.binli.agiledev.model.vo.TCoreDbExt;
 import com.binli.agiledev.model.vo.TCoreTableExt;
 import com.binli.agiledev.service.table.ICoreTableService;
  
@@ -58,9 +59,10 @@ public class CoreTableColumnCtl extends BaseCtl{
 		
 		
 		iCoreTableService.add(tCoreTableExt);*/
-		
-		
-		System.out.println(iCoreTableService);
+		setReqAndRes(request,response);
+		List<TCoreDbExt>  t=iCoreTableService.get();
+		printJsonArr(t);
+		System.out.println("xxxxxx");
 		 
 		
 		return null;

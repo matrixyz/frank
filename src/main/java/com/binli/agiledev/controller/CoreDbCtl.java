@@ -15,46 +15,28 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.binli.agiledev.dao.model.TCoreColumn;
 import com.binli.agiledev.model.vo.TCoreDbExt;
 import com.binli.agiledev.model.vo.TCoreTableExt;
+import com.binli.agiledev.service.table.ICoreDbService;
 import com.binli.agiledev.service.table.ICoreTableService;
  
 @Scope("prototype")//保证该类多例
 @Controller
-@RequestMapping("/coretablecolumn")
-public class CoreTableColumnCtl extends BaseCtl{
+@RequestMapping("/coredb")
+public class CoreDbCtl extends BaseCtl{
 	
 	@Autowired
-	public ICoreTableService iCoreTableService;
+	public ICoreDbService iCoreDbService;
 	
 	@ResponseBody
-	@RequestMapping("/aa")
-	public String aa(@RequestBody TCoreTableExt tCoreTableExt) { 
-		
-		/*TCoreTableExt tCoreTableExt=new TCoreTableExt();
-		tCoreTableExt.setComment("注释");
-		tCoreTableExt.setCreTim(new Date());
-		tCoreTableExt.setDbId("1");
-		tCoreTableExt.setTabName("users");
-		tCoreTableExt.settCoreColumn(requestBody );*/
-		
-		tCoreTableExt.setDbId(1);
-		iCoreTableService.add(tCoreTableExt);
-		
-		
-		System.out.println(iCoreTableService);
-		System.out.println(tCoreTableExt);
-		
+	@RequestMapping("/add")
+	public String add(@RequestBody TCoreTableExt tCoreTableExt) {  
 		return null;
 	}
 	@ResponseBody
-	@RequestMapping("/b")
-	public String  b( HttpServletRequest req,HttpServletResponse res) { 
-		
-	
-		setReqAndRes(req,res);
-		List<TCoreDbExt>  t=iCoreTableService.get();
-		printJsonArr(t);
-		System.out.println("xxxxxx");
-		 
+	@RequestMapping("/select")
+	public String  select( ) { 
+	  
+		List<TCoreDbExt>  t=iCoreDbService.get();
+		printJsonArr(t); 
 		
 		return null;
 	}

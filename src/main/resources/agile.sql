@@ -44,6 +44,9 @@ INSERT INTO `t_core_column` VALUES (3,'test','int',NULL,'user',b'1',2,'这是注
 INSERT INTO `t_core_column` VALUES (4,'pwd','double',NULL,'阿斯蒂芬',b'1',3,'这是注释','2017-04-06 21:49:53');
 INSERT INTO `t_core_column` VALUES (5,'name','int',NULL,'user',b'1',3,'这是注释','2017-04-06 21:49:53');
 INSERT INTO `t_core_column` VALUES (6,'test','int',NULL,'user',b'1',3,'这是注释','2017-04-06 21:49:53');
+INSERT INTO `t_core_column` VALUES (7,'11','int',NULL,'user',b'1',4,'这是注释','2017-04-14 22:46:47');
+INSERT INTO `t_core_column` VALUES (8,'11','int',NULL,'user',b'1',4,'这是注释','2017-04-14 22:46:47');
+INSERT INTO `t_core_column` VALUES (9,'11','int',NULL,'user',b'1',4,'这是注释','2017-04-14 22:46:47');
 /*!40000 ALTER TABLE `t_core_column` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -58,7 +61,7 @@ CREATE TABLE `t_core_db` (
   `index_sort` int(11) DEFAULT NULL,
   `comment` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='数据库信息表';
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='数据库信息表';
 
 #
 # Dumping data for table t_core_db
@@ -66,6 +69,7 @@ CREATE TABLE `t_core_db` (
 
 LOCK TABLES `t_core_db` WRITE;
 /*!40000 ALTER TABLE `t_core_db` DISABLE KEYS */;
+INSERT INTO `t_core_db` VALUES (1,'jindian_db',1,'金典网会员管理系统');
 /*!40000 ALTER TABLE `t_core_db` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -105,7 +109,7 @@ CREATE TABLE `t_core_project` (
   `index_sort` int(11) NOT NULL DEFAULT '0' COMMENT '排序',
   `comment` varchar(300) DEFAULT NULL COMMENT '注释',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 #
 # Dumping data for table t_core_project
@@ -113,7 +117,30 @@ CREATE TABLE `t_core_project` (
 
 LOCK TABLES `t_core_project` WRITE;
 /*!40000 ALTER TABLE `t_core_project` DISABLE KEYS */;
+INSERT INTO `t_core_project` VALUES (1,'信息管理系统',0,'金典网后台会员管理系统');
 /*!40000 ALTER TABLE `t_core_project` ENABLE KEYS */;
+UNLOCK TABLES;
+
+#
+# Source for table t_core_rel_project_db
+#
+
+DROP TABLE IF EXISTS `t_core_rel_project_db`;
+CREATE TABLE `t_core_rel_project_db` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `pro_id` int(11) NOT NULL DEFAULT '0' COMMENT '项目编号',
+  `db_id` int(11) NOT NULL DEFAULT '0' COMMENT '数据库编号',
+  PRIMARY KEY (`Id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='关联数据库表和项目表的关系表,project与db是一对多的关系';
+
+#
+# Dumping data for table t_core_rel_project_db
+#
+
+LOCK TABLES `t_core_rel_project_db` WRITE;
+/*!40000 ALTER TABLE `t_core_rel_project_db` DISABLE KEYS */;
+INSERT INTO `t_core_rel_project_db` VALUES (1,1,1);
+/*!40000 ALTER TABLE `t_core_rel_project_db` ENABLE KEYS */;
 UNLOCK TABLES;
 
 #
@@ -141,6 +168,7 @@ LOCK TABLES `t_core_table` WRITE;
 INSERT INTO `t_core_table` VALUES (1,'users',1,'注释','utf-8','2017-04-06 21:41:46','InnoDB');
 INSERT INTO `t_core_table` VALUES (2,'users',1,'注释','utf-8','2017-04-06 21:49:18','InnoDB');
 INSERT INTO `t_core_table` VALUES (3,'users',1,'注释','utf-8','2017-04-06 21:49:53','InnoDB');
+INSERT INTO `t_core_table` VALUES (4,'Bill Smith',1,NULL,'utf-8','2017-04-14 22:46:47','InnoDB');
 /*!40000 ALTER TABLE `t_core_table` ENABLE KEYS */;
 UNLOCK TABLES;
 

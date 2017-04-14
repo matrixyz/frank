@@ -47,7 +47,7 @@ public class TestCoreTableColumnCtl {
         try {  
         	request.setParameter("userName", "admin");
         	request.setParameter("password", "2");
-           assertEquals("login",loginController.b(request, response)) ;  
+           assertEquals("login",loginController.b(request,response )) ;  
         	System.out.println(iCoreTableService);
         } catch (Exception e) {  
             e.printStackTrace();  

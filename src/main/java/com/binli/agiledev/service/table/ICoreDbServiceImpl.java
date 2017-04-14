@@ -12,30 +12,12 @@ import com.binli.agiledev.dao.model.TCoreColumn;
 import com.binli.agiledev.model.vo.TCoreDbExt;
 import com.binli.agiledev.model.vo.TCoreTableExt;
 
-@Service("iCoreTableService") //这个参数要和对应的 消费者 controller 的autowared  组件的 变量名一致
-public class ICoreTableServiceImpl implements ICoreTableService {
-	@Autowired
-	private TCoreTableMapper tCoreTableMapper;
-	@Autowired
-	private TCoreColumnMapper tCoreColumnMapper;
+@Service("iCoreDbService") //这个参数要和对应的 消费者 controller 的autowared  组件的 变量名一致
+public class ICoreDbServiceImpl implements ICoreDbService {
+	 
 	@Autowired
 	private TCoreDbMapper tCoreDbMapper;
-	@Override
-	public int add(TCoreTableExt tCoreTableExt) {
-		// TODO Auto-generated method stub
-		tCoreTableMapper.insert(tCoreTableExt);	
-		int tab_id=tCoreTableExt.getTabId();
-		for(TCoreColumn t:tCoreTableExt.gettCoreColumn()){
-			t.setTabId(tab_id);
-		}
-		tCoreColumnMapper.insertByBatch(tCoreTableExt.gettCoreColumn() );
-		
-		
-		
-		
-		
-		return 1;
-	}
+	 
 	@Override
 	public List<TCoreDbExt> get() {
 		// TODO Auto-generated method stub

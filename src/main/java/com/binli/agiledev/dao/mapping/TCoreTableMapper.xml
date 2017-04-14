@@ -51,7 +51,7 @@
     -->
     insert into t_core_table ( tab_name, db_id, 
       comment, cre_tim)
-    values ( #{tabName,jdbcType=VARCHAR}, #{dbId,jdbcType=VARCHAR}, 
+    values ( #{tabName,jdbcType=VARCHAR}, #{dbId,jdbcType=INTEGER}, 
       #{comment,jdbcType=VARCHAR}, #{creTim,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.binli.agiledev.dao.model.TCoreTable" >

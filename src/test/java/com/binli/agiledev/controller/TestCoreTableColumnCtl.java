@@ -28,7 +28,7 @@ public class TestCoreTableColumnCtl {
     @Autowired  
     private CoreTableColumnCtl loginController ;  
     
-    @Autowired
+    //@Autowired
 	public ICoreTableService iCoreTableService;
     // 执行测试方法之前初始化模拟request,response  
     @Before    

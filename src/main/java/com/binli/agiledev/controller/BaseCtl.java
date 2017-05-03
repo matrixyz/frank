@@ -33,9 +33,9 @@ public class BaseCtl {
 
 
 	public static final String ERROR="error";
-	 @Autowired
-	protected HttpServletRequest request; 
-	 @Autowired
+	// @Autowired
+	protected HttpServletRequest request; //在junit 测试模式下，该对象不能自动装配，否则junit运行会报错，项目在容器运行的时候需要自动装配
+	// @Autowired
     protected HttpServletResponse response; 
     protected HttpSession session; 
      

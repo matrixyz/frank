@@ -16,6 +16,7 @@ import com.binli.agiledev.dao.model.TCoreColumn;
 import com.binli.agiledev.model.vo.TCoreDbExt;
 import com.binli.agiledev.model.vo.TCoreTableExt;
 import com.binli.agiledev.service.table.ICoreTableService;
+import com.binli.agiledev.util.Message;
  
 @Scope("prototype")//保证该类多例
 @Controller
@@ -25,9 +26,14 @@ public class CoreTableColumnCtl extends BaseCtl{
 	@Autowired
 	public ICoreTableService iCoreTableService;
 	
+	/**
+	 * 添加表属性信息和字段信息到数据库中
+	 * @param tCoreTableExt
+	 * @return
+	 */
 	@ResponseBody
-	@RequestMapping("/aa")
-	public String aa(@RequestBody TCoreTableExt tCoreTableExt) { 
+	@RequestMapping("/add")
+	public String add(@RequestBody TCoreTableExt tCoreTableExt) { 
 		
 		/*TCoreTableExt tCoreTableExt=new TCoreTableExt();
 		tCoreTableExt.setComment("注释");
@@ -39,7 +45,7 @@ public class CoreTableColumnCtl extends BaseCtl{
 		tCoreTableExt.setDbId(1);
 		iCoreTableService.add(tCoreTableExt);
 		
-		
+		printJsonObj(new Message("添加成功!"));
 		System.out.println(iCoreTableService);
 		System.out.println(tCoreTableExt);
 		
@@ -58,5 +64,6 @@ public class CoreTableColumnCtl extends BaseCtl{
 		
 		return null;
 	}
+	
 
 }

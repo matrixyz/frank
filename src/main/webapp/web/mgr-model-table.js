@@ -33,6 +33,7 @@
 					
 					/** ************************************************************************** */
 					/* 表管理开始 */
+					/* 表字段编辑控制开始 */
 					
 					
 					/* 表字段显示的datagrid的数据操作和绑定  开始*/
@@ -201,12 +202,12 @@
 					                    
 					                     $.ajax({
 					                         type: "post",
-					                         url: "../coretablecolumn/aa",
+					                         url: "../coretablecolumn/add",
 					                         data: JSON.stringify(param),
 					                         dataType: 'json',
 					                         contentType: 'application/json;charset=utf-8',
 					                         success: function (data) {
-					                                 
+					                                 alert(data.msg);
 					                         },
 					                         error: function (XMLHttpRequest, textStatus, errorThrown) {
 					                 			alert(errorThrown);
@@ -264,15 +265,16 @@
  					//左边对项目中的全部表进行管理的datagrid 开始			
  					//项目表
 				    $('#mgr_tables').treegrid({
-				        url:'/test.json',
+				        
+				        url:'/coretable/list',
 				        idField:'id',
-				        treeField:'db_nam',
+				        treeField:'name',
 				        columns:[[
-				            {title:'数据库名称',field:'db_nam',width:180},
-				            {field:'pro_nam',title:'项目名称',width:60,align:'right'},
-				            {field:'obj_nam',title:'对象名称',width:60,align:'right'},
+				            {field:'name',title:'对象名称',width:180},
+				            {field:'objType',title:'对象类型',width:60,align:'right'},
+				            
 				           
-				            {field:'obj_type',title:'创建新表',
+				            {field:'objType',title:'创建新表',
 				            formatter:function(value,rowData,rowIndex){
 				            	
 				            	if(rowData.state=='open'){
@@ -282,8 +284,9 @@
 				            	return '<a href="#"> 编辑</a>|<a href="#"> 删除</a>';
 				            
 				            },width:60,align:'right'},
-				            {field:'obj_comment',title:'描述',width:160,align:'right'}
+				            {field:'comment',title:'描述',width:160,align:'right'}
 				        ]],
+				        
 				        
 				        toolbar: [{ text: '添加1', iconCls: 'icon-add', handler: function () {// 添加列表的操作按钮添加，修改，删除等
 					                   // alert(12);

@@ -1,0 +1,105 @@
+{
+	"total": 11,
+    "rows": [
+        {
+            "_parentId": "pro_1",
+            "comment": "金典网会员管理系统",
+            "id": "db_1",
+            "name": "jindian_db",
+            "objType": "db",
+            "pid": "pro_1",
+            "state": "closed"
+        },
+        {
+            "_parentId": "pro_2",
+            "comment": "中金金服信贷管理系统",
+            "id": "db_2",
+            "name": "p2p_db",
+            "objType": "db",
+            "pid": "pro_2",
+            "state": "closed"
+        },
+        {
+             "_parentId": "",
+            "comment": "金典网后台会员管理系统",
+            "id": "pro_1",
+            "name": "信息管理系统",
+            "objType": "pro",
+            "pid": "0",
+            "state": "closed"
+        },
+        {
+            "_parentId": "",
+            "comment": "中金金服信贷管理系统",
+            "id": "pro_2",
+            "name": "中金金服信贷管理系统",
+            "objType": "pro",
+            "pid": "0",
+            "state": "closed"
+        },
+        {
+            "_parentId": "db_1",
+            "comment": "注释",
+            "id": "tab_1",
+            "name": "users",
+            "objType": "tab",
+            "pid": "db_1",
+            "state": "closed"
+        },
+        {
+            "_parentId": "db_1",
+            "comment": "注释",
+            "id": "tab_2",
+            "name": "users",
+            "objType": "tab",
+            "pid": "db_1",
+            "state": "closed"
+        },
+        {
+            "_parentId": "db_1",
+            "comment": "注释",
+            "id": "tab_3",
+            "name": "users",
+            "objType": "tab",
+            "pid": "db_1",
+            "state": "closed"
+        },
+        {
+            "_parentId": "db_1",
+            "comment": "",
+            "id": "tab_4",
+            "name": "Bill Smith",
+            "objType": "tab",
+            "pid": "db_1",
+            "state": "closed"
+        },
+        {
+            "_parentId": "db_2",
+            "comment": "",
+            "id": "tab_5",
+            "name": "Bill Smith",
+            "objType": "tab",
+            "pid": "db_2",
+            "state": "closed"
+        },
+        {
+            "_parentId": "db_2",
+            "comment": "",
+            "id": "tab_6",
+            "name": "Bill Smith",
+            "objType": "tab",
+            "pid": "db_2",
+            "state": "closed"
+        },
+        {
+            "_parentId": "db_2",
+            "comment": "",
+            "id": "tab_7",
+            "name": "Bill Smith",
+            "objType": "tab",
+            "pid": "db_2",
+            "state": "closed"
+        }
+    ] 
+    
+}

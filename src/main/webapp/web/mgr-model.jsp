@@ -3,6 +3,7 @@
 <script type="text/javascript">
 	parentFn.allTitle = new Array();//用来存储所有选项卡的标题
 	$(function() {
+		// 表管理js开始
 		<%@ include file="mgr-model-table.js"%>
 			
 		<%@ include file="mgr-model-class.js"%>
@@ -53,10 +54,11 @@
 					<div class="easyui-layout" data-options="fit:true">
 						<div region="north" style="height: 50%; border: 0px;">
 
-
+							<!-- 表的基本属性信息定义 -->
 							<table id="table_struct" class="easyui-propertygrid" fit="true"></table>
 						</div>
 						<div region="center" style="height: 50%; border: 0px;">
+							<!-- 表的字段信息定义 -->
 							<table id="table_column_dg" class="easyui-datagrid" fit="true"></table>
 						</div>
 					</div>

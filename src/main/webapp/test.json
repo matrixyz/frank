@@ -2,35 +2,33 @@
     "total":3,
     "rows":[
         {
-            "id":25,
-            "db_nam":"aaa",
-            "pro_nam":"哈哈哈",
-            "obj_nam":"user",
-            "obj_type":"aaxxa",
-             "obj_comment":"这个是用户表",
-            "orderId":25
+            "id":"ab_12",
+            
+            "name":"中金金服信贷管理系统",
+           
+            "objType":"aaxxa",
+             "comment":"这个是用户表",
+             "state":"closed" 
         },
         {
             "id":26,
-            "db_nam":"aaa",
-            "pro_nam":"嘻嘻嘻",
-            "obj_nam":"aaxxa",
-            "obj_type":"aaxxa",
-            "obj_comment":"这个是用户表",
+             
+            "name":"p2p_web",
+             
+            "objType":"aaxxa",
+            "comment":"这个是用户表",
             "state":"closed",
-            "_parentId":25,
-            "orderId":21
+            "_parentId":"ab_12" 
         },
         {
-            "id":45,
-            "db_nam":"aaa",
-            "pro_nam":"乐乐乐",
-            "obj_nam":"aaxxa",
-            "obj_type":"aaxxa",
-            "obj_comment":"这个是用户表",
+            "id":27,
+             
+            "name":"use_table",
+             
+            "objType":"aaxxa",
+            "comment":"这个是用户表",
             "state":"closed",
-            "_parentId":25,
-            "orderId":11
-        }
+            "_parentId":26 
+        } 
     ]
 }

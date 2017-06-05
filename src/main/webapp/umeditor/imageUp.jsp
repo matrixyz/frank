@@ -1,16 +1,16 @@
     <%@ page language="java" contentType="text/html; charset=utf-8"
              pageEncoding="utf-8"%>
-        <%@ page import="com.qhit.ser.UploaderSer" %>
+        
 
             <%
     request.setCharacterEncoding("utf-8");
 	response.setCharacterEncoding("utf-8");
-    UploaderSer up = new UploaderSer(request);
+    /* UploaderSer up = new UploaderSer(request);
     up.setSavePath("upload");
     String[] fileType = {".gif" , ".png" , ".jpg" , ".jpeg" , ".bmp"};
     up.setAllowFiles(fileType);
     up.setMaxSize(300); //单位KB
-    up.upload();
+    up.upload(); 
 
     String callback = request.getParameter("callback");
 
@@ -22,5 +22,5 @@
         response.getWriter().print( result );
     }else{
         response.getWriter().print("<script>"+ callback +"(" + result + ")</script>");
-    }
+    }*/
     %>

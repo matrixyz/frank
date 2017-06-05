@@ -269,22 +269,26 @@
 				        url:'/coretable/list',
 				        idField:'id',
 				        treeField:'name',
+				        fitColumns:true,
 				        columns:[[
-				            {field:'name',title:'对象名称',width:180},
+				            {field:'name',title:'对象名称',width:150},
 				            {field:'objType',title:'对象类型',width:60,align:'right'},
 				            
 				           
-				            {field:'objType',title:'创建新表',
+				            {field:'pid',title:'操作对象',
 				            formatter:function(value,rowData,rowIndex){
 				            	
-				            	if(rowData.state=='open'){
-				            		return '<a href="#">创建表</a>';
+				            	if(rowData.objType=='pro'){
+				            		return '<a href="#">编辑项目</a>|<a href="#">创建DB</a>';
+				            	}
+				            	if(rowData.objType=='db'){
+				            		return '<a href="#">编辑DB</a>|<a href="#">创建表</a>';
 				            	}
 				            	
-				            	return '<a href="#"> 编辑</a>|<a href="#"> 删除</a>';
+				            	return '<a href="#" onclick="parentFn.edit_table(\''+rowData.id+'\')"> 编辑表</a>|<a href="#">删除表</a>';
 				            
-				            },width:60,align:'right'},
-				            {field:'comment',title:'描述',width:160,align:'right'}
+				            },width:120,align:'center'},
+				            {field:'comment',title:'描述', width:200,align:'left'}
 				        ]],
 				        
 				        

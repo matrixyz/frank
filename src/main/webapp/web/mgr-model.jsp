@@ -2,8 +2,13 @@
 <%@ include file="../sys-top.jsp"%>
 <script type="text/javascript">
 	parentFn.allTitle = new Array();//用来存储所有选项卡的标题
+	
+	<%@ include file="mgr-model-table.js"%>
 	$(function() {
+		
+		
 		// 表管理js开始
+		<%@ include file="mgr-model-table-fn.js"%>
 		<%@ include file="mgr-model-table.js"%>
 			
 		<%@ include file="mgr-model-class.js"%>

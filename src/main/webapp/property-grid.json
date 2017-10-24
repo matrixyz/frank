@@ -1,20 +1,32 @@
 [
-	{"name":"表名","value":"Bill Smith","group":"基本信息","editor":"text"},
-	{"name":"类型","value":"","group":"基本信息","editor":"text"},
-	{"name":"字符集","value":"40","group":"基本信息","editor":"numberbox"},
-	{"name":"备注","value":"01/02/2012","group":"基本信息","editor":"datebox"},
-	{"name":"SSN","value":"123-456-7890","group":"基本信息","editor":"text"},
-	{"name":"Email","value":"bill@gmail.com1","group":"索引","editor":{
-		"type":"validatebox",
-		"options":{
-			"validType":"email"
+	{"name":"表名","value":"B阿萨德法师打发斯蒂芬","fieldName":"tabName","group":"基本信息","editor":"text"},
+	{"name":"类型","value":"MyISAM","fieldName":"tabType","group":"基本信息","editor":{
+		"type":"combobox",
+		"options":{ "data": [{"value":"MyISAM", "text": "MyISAM" },{ "value":"InnoDB", "text": "InnoDB"}], "panelHeight": "auto"
 		}
 	}},
-	{"name":"FrequentBuyer","value":"false","group":"索引","editor":{
-		"type":"checkbox",
-		"options":{
-			"on":true,
-			"off":false
+	{"name":"字符集","value":"UTF-8","fieldName":"charset","group":"基本信息","editor":{
+		"type":"combobox",
+		"options":{ "data": [{"value":"UTF-8", "text": "UTF-8" },{ "value":"GBK", "text": "GBK"},{ "value":"GB2312", "text": "GB2312"}], "panelHeight": "auto"
+		}
+	}},
+	{"name":"创建日期","value":"2016-09-09","fieldName":"creTim","group":"基本信息","editor":"datebox"},
+	{"name":"备注", "group":"基本信息","fieldName":"comment","editor":"text"},
+	 
+	{"name":"所属行业","value":"false","fieldName":"industry","group":"索引","editor":{
+		"type":"combobox",
+		"options":{ "data": 
+		[	{"value":"金融", "text": "金融" },
+			{ "value":"医疗", "text": "医疗"},
+			{ "value":"保险", "text": "保险"}], "panelHeight": "auto"
+		}
+	}},
+	{"name":"所属业务","value":"false","fieldName":"belongBuss","group":"索引","editor":{
+		"type":"combobox",
+		"options":{ "data": 
+		[	{"value":"会员管理", "text": "会员管理" },
+			{ "value":"用户注册", "text": "用户注册"},
+			{ "value":"用户权限", "text": "用户权限"}], "panelHeight": "auto"
 		}
 	}}
 ]

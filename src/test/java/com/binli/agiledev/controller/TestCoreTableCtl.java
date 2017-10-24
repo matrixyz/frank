@@ -46,7 +46,8 @@ public class TestCoreTableCtl {
     public void testList() {   
         try {  
         	 
-           assertEquals("v_pro_db_tab_tree",coreTableCtl.list(request,response )) ;  
+          // assertEquals("v_pro_db_tab_tree",coreTableCtl.list(request,response )) ;  
+           assertEquals("hello",coreTableCtl.get( 2)) ;  
         	System.out.println(iCoreTableService);
         } catch (Exception e) {  
             e.printStackTrace();  

@@ -1,17 +1,21 @@
 package com.binli.agiledev.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
  
 import com.binli.agiledev.model.json.VProDbTabTreeJson;
- 
+import com.binli.agiledev.model.json.tablestruct.EasyuiPropertygridJsonResponse;
 import com.binli.agiledev.service.table.ICoreTableService;
  
 @Scope("prototype")//保证该类多例
@@ -40,6 +44,13 @@ public class CoreTableCtl extends BaseCtl{
 		
 		return null;
 	}
-	
+	@ResponseBody
+	@RequestMapping(value="/get/{id}",method=RequestMethod.GET)
+	public List<EasyuiPropertygridJsonResponse> get(@PathVariable("id") int id){
+		
+		List<EasyuiPropertygridJsonResponse> res=iCoreTableService.get(id); 
+		 
+		return res;
+	}
 
 }

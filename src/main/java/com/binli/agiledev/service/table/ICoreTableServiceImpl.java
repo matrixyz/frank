@@ -2,16 +2,24 @@ package com.binli.agiledev.service.table;
 
 import java.util.List;
 
+import javax.servlet.ServletContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.binli.agiledev.dao.mapper.TCoreColumnMapper;
 import com.binli.agiledev.dao.mapper.TCoreDbMapper;
 import com.binli.agiledev.dao.mapper.TCoreTableMapper;
 import com.binli.agiledev.dao.mapper.VProDbTabTreeMapper;
 import com.binli.agiledev.dao.model.TCoreColumn;
+import com.binli.agiledev.dao.model.TCoreTable;
 import com.binli.agiledev.dao.model.VProDbTabTree;
 import com.binli.agiledev.model.json.VProDbTabTreeJson;
+import com.binli.agiledev.model.json.tablestruct.EasyuiPropertygridJsonResponse;
+import com.binli.agiledev.model.json.tablestruct.IEasyuiPropertygridJsonResponseAdapter;
+import com.binli.agiledev.model.json.tablestruct.IEasyuiPropertygridJsonResponseAdapterImpl;
 import com.binli.agiledev.model.vo.TCoreDbExt;
 import com.binli.agiledev.model.vo.TCoreTableExt;
 
@@ -72,6 +80,17 @@ public class ICoreTableServiceImpl implements ICoreTableService {
 		vp.setRows(res);
 		vp.setTotal(res.size());
 		return vp;
+	}
+	@Autowired
+	private IEasyuiPropertygridJsonResponseAdapter easy;
+	@Override
+	public List<EasyuiPropertygridJsonResponse> get(int id) {
+		// TODO Auto-generated method stub
+		TCoreTable tCoreTable =tCoreTableMapper.selectByPrimaryKey(id);
+		easy.init(tCoreTable);
+		
+		
+		return easy.get();
 	}
 
 }
